@@ -11,20 +11,21 @@ public class PlayerInputHub : MonoBehaviour
     private RawInputReader inputReader;
 
     /// <summary>
-    /// Direction for movement
-    /// </summary>
-    private Vector2 movementVector;
-
-    /// <summary>
     /// Camera aiming component
     /// </summary>
     private CameraAimer cameraAimer;
+
+    /// <summary>
+    /// Movement component
+    /// </summary>
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         inputReader = GetComponent<RawInputReader>();
         cameraAimer = GetComponent<CameraAimer>();
+        playerMovement = GetComponent<PlayerMovement>();
 
         inputReader.OnDirectionPerfomed += OnMovementPerformed;
         inputReader.OnDirectionStopped += OnMovementStopped;
@@ -37,11 +38,11 @@ public class PlayerInputHub : MonoBehaviour
 
     private void OnMovementPerformed(object sender, Vector2 e)
     {
-        movementVector = e;
+        playerMovement.SetMovementVector(e);
     }
     private void OnMovementStopped()
     {
-        movementVector = Vector2.zero;
+        playerMovement.SetMovementVector(Vector2.zero);
     }
 
     private void OnDisable()
