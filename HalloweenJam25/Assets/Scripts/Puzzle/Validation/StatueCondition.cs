@@ -27,6 +27,7 @@ public class StatueCondition : PuzzleCondition
         return true;
     }
 
+    //Helper for directions
     private bool VerifyStatueDirection(GameObject s, Direction direction)
     {
         return s.GetComponent<StatueObject>().FacingDirection == direction;
