@@ -20,17 +20,33 @@ public class PlayerInputHub : MonoBehaviour
     /// </summary>
     private PlayerMovement playerMovement;
 
+    /// <summary>
+    /// Player to object interact component
+    /// </summary>
+    private WorldInteracter worldInteracter;
+
     // Start is called before the first frame update
     void Start()
     {
         inputReader = GetComponent<RawInputReader>();
         cameraAimer = GetComponent<CameraAimer>();
         playerMovement = GetComponent<PlayerMovement>();
+        worldInteracter = GetComponent<WorldInteracter>();
 
         inputReader.OnDirectionPerfomed += OnMovementPerformed;
         inputReader.OnDirectionStopped += OnMovementStopped;
+        inputReader.OnInteractStop += OnInteractStopped;
+        inputReader.OnInteractHeld += OnInteractHeld;
     }
 
+    private void OnInteractHeld()
+    {
+        worldInteracter.CheckForInteract();
+    }
+    private void OnInteractStopped()
+    {
+        worldInteracter.StopInteracting();
+    }
     private void Update()
     {
         cameraAimer.SetMouseAim(inputReader.AimDelta);
@@ -49,5 +65,7 @@ public class PlayerInputHub : MonoBehaviour
     {
         inputReader.OnDirectionPerfomed -= OnMovementPerformed;
         inputReader.OnDirectionStopped -= OnMovementStopped;
+        inputReader.OnInteractStop -= OnInteractStopped;
+        inputReader.OnInteractHeld -= OnInteractHeld;
     }
 }

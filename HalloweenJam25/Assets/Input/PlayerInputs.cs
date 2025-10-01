@@ -37,21 +37,21 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact Press"",
-                    ""type"": ""Button"",
-                    ""id"": ""30a48dae-a0a9-4346-9a72-86b0ea652b64"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Aim"",
                     ""type"": ""PassThrough"",
                     ""id"": ""4a89f445-16e2-4bbb-8100-99d21dab66f9"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""5db94cf5-a870-4f66-a5ed-5f73c15183ed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.06,pressPoint=0.05)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -124,28 +124,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""20578bd8-7e0f-477b-b1eb-e937b3d808d5"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact Press"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d38daa00-6239-4931-9709-7c3a2716e70f"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact Press"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e5afed25-b911-4da3-9ee6-8cdb009c433c"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
@@ -165,6 +143,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09e4d5fc-32e4-4ae1-b8c4-e22fd07ce89b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59eba3bb-154e-4952-9e86-20ddeb255d59"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -174,8 +174,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         // GroundMap
         m_GroundMap = asset.FindActionMap("GroundMap", throwIfNotFound: true);
         m_GroundMap_Directions = m_GroundMap.FindAction("Directions", throwIfNotFound: true);
-        m_GroundMap_InteractPress = m_GroundMap.FindAction("Interact Press", throwIfNotFound: true);
         m_GroundMap_Aim = m_GroundMap.FindAction("Aim", throwIfNotFound: true);
+        m_GroundMap_Interact = m_GroundMap.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,15 +238,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_GroundMap;
     private List<IGroundMapActions> m_GroundMapActionsCallbackInterfaces = new List<IGroundMapActions>();
     private readonly InputAction m_GroundMap_Directions;
-    private readonly InputAction m_GroundMap_InteractPress;
     private readonly InputAction m_GroundMap_Aim;
+    private readonly InputAction m_GroundMap_Interact;
     public struct GroundMapActions
     {
         private @PlayerInputs m_Wrapper;
         public GroundMapActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Directions => m_Wrapper.m_GroundMap_Directions;
-        public InputAction @InteractPress => m_Wrapper.m_GroundMap_InteractPress;
         public InputAction @Aim => m_Wrapper.m_GroundMap_Aim;
+        public InputAction @Interact => m_Wrapper.m_GroundMap_Interact;
         public InputActionMap Get() { return m_Wrapper.m_GroundMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -259,12 +259,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Directions.started += instance.OnDirections;
             @Directions.performed += instance.OnDirections;
             @Directions.canceled += instance.OnDirections;
-            @InteractPress.started += instance.OnInteractPress;
-            @InteractPress.performed += instance.OnInteractPress;
-            @InteractPress.canceled += instance.OnInteractPress;
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IGroundMapActions instance)
@@ -272,12 +272,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Directions.started -= instance.OnDirections;
             @Directions.performed -= instance.OnDirections;
             @Directions.canceled -= instance.OnDirections;
-            @InteractPress.started -= instance.OnInteractPress;
-            @InteractPress.performed -= instance.OnInteractPress;
-            @InteractPress.canceled -= instance.OnInteractPress;
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IGroundMapActions instance)
@@ -298,7 +298,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     public interface IGroundMapActions
     {
         void OnDirections(InputAction.CallbackContext context);
-        void OnInteractPress(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

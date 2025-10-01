@@ -15,21 +15,21 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact Press",
-                    "type": "Button",
-                    "id": "30a48dae-a0a9-4346-9a72-86b0ea652b64",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Aim",
                     "type": "PassThrough",
                     "id": "4a89f445-16e2-4bbb-8100-99d21dab66f9",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "5db94cf5-a870-4f66-a5ed-5f73c15183ed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.06,pressPoint=0.05)",
                     "initialStateCheck": false
                 }
             ],
@@ -102,28 +102,6 @@
                 },
                 {
                     "name": "",
-                    "id": "20578bd8-7e0f-477b-b1eb-e937b3d808d5",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact Press",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d38daa00-6239-4931-9709-7c3a2716e70f",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact Press",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e5afed25-b911-4da3-9ee6-8cdb009c433c",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -141,6 +119,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09e4d5fc-32e4-4ae1-b8c4-e22fd07ce89b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59eba3bb-154e-4952-9e86-20ddeb255d59",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

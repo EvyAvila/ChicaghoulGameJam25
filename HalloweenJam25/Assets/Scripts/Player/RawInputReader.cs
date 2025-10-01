@@ -11,6 +11,8 @@ public class RawInputReader : MonoBehaviour
     //Exposed Events
     public EventHandler<Vector2> OnDirectionPerfomed;
     public event Action OnDirectionStopped;
+    public event Action OnInteractHeld;
+    public event Action OnInteractStop;
 
     public Vector2 AimDelta { get; private set; }
 
@@ -22,7 +24,20 @@ public class RawInputReader : MonoBehaviour
         _inputs.Enable();
         _inputs.GroundMap.Directions.performed += OnDirectionPressed;
         _inputs.GroundMap.Directions.canceled += OnDirectionsStopped;
+        _inputs.GroundMap.Interact.performed += OnInteractPerformed;
+        _inputs.GroundMap.Interact.canceled += OnInteractStopped; 
     }
+
+    private void OnInteractStopped(InputAction.CallbackContext obj)
+    {
+        OnInteractStop?.Invoke();
+    }
+
+    private void OnInteractPerformed(InputAction.CallbackContext obj)
+    {
+        OnInteractHeld?.Invoke();
+    }
+
     private void Update()
     {
         AimDelta = _inputs.GroundMap.Aim.ReadValue<Vector2>();
@@ -42,5 +57,7 @@ public class RawInputReader : MonoBehaviour
         _inputs.Disable();
         _inputs.GroundMap.Directions.performed -= OnDirectionPressed;
         _inputs.GroundMap.Directions.canceled -= OnDirectionsStopped;
+        _inputs.GroundMap.Interact.performed -= OnInteractPerformed;
+        _inputs.GroundMap.Interact.canceled -= OnInteractStopped;
     }
 }
