@@ -24,8 +24,6 @@ public class PlayerInputHub : MonoBehaviour
     /// Player to object interact component
     /// </summary>
     private WorldInteracter worldInteracter;
-
-    // Start is called before the first frame update
     void Start()
     {
         inputReader = GetComponent<RawInputReader>();
@@ -37,6 +35,12 @@ public class PlayerInputHub : MonoBehaviour
         inputReader.OnDirectionStopped += OnMovementStopped;
         inputReader.OnInteractStop += OnInteractStopped;
         inputReader.OnInteractHeld += OnInteractHeld;
+        inputReader.OnInteractSecondary += OnInteractSecondary;
+    }
+
+    private void OnInteractSecondary()
+    {
+        worldInteracter.CheckForSecondaryInteract();
     }
 
     private void OnInteractHeld()
@@ -67,5 +71,6 @@ public class PlayerInputHub : MonoBehaviour
         inputReader.OnDirectionStopped -= OnMovementStopped;
         inputReader.OnInteractStop -= OnInteractStopped;
         inputReader.OnInteractHeld -= OnInteractHeld;
+        inputReader.OnInteractSecondary -= OnInteractSecondary;
     }
 }

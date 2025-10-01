@@ -13,6 +13,9 @@ public class RawInputReader : MonoBehaviour
     public event Action OnDirectionStopped;
     public event Action OnInteractHeld;
     public event Action OnInteractStop;
+    public event Action OnInteractSecondary;
+    public event Action OnRotate;
+    public event Action OnRotateStopped;
 
     public Vector2 AimDelta { get; private set; }
 
@@ -25,7 +28,19 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.Directions.performed += OnDirectionPressed;
         _inputs.GroundMap.Directions.canceled += OnDirectionsStopped;
         _inputs.GroundMap.Interact.performed += OnInteractPerformed;
-        _inputs.GroundMap.Interact.canceled += OnInteractStopped; 
+        _inputs.GroundMap.SecondaryInteract.performed += OnSecondaryInteractPerformed;
+        _inputs.GroundMap.Interact.canceled += OnInteractStopped;
+        _inputs.GroundMap.ToggleRotate.started+= OnToggleRotate;
+    }
+
+    private void OnSecondaryInteractPerformed(InputAction.CallbackContext obj)
+    {
+        OnInteractSecondary?.Invoke();
+    }
+
+    private void OnToggleRotate(InputAction.CallbackContext obj)
+    {
+        OnRotate?.Invoke();
     }
 
     private void OnInteractStopped(InputAction.CallbackContext obj)
@@ -58,6 +73,8 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.Directions.performed -= OnDirectionPressed;
         _inputs.GroundMap.Directions.canceled -= OnDirectionsStopped;
         _inputs.GroundMap.Interact.performed -= OnInteractPerformed;
+        _inputs.GroundMap.SecondaryInteract.performed -= OnSecondaryInteractPerformed;
         _inputs.GroundMap.Interact.canceled -= OnInteractStopped;
+        _inputs.GroundMap.ToggleRotate.performed -= OnToggleRotate;
     }
 }

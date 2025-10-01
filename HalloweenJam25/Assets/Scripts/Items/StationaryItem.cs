@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StationaryItem : InteractableObject
 {
-
     public override void Interact()
     {
         Debug.Log("I'm stationary");

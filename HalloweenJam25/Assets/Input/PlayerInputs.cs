@@ -53,6 +53,33 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=0.06,pressPoint=0.05)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""c838dae5-50d7-48b9-bc0d-5517e8478519"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.06,pressPoint=0.05)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleRotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd627db2-30b6-484f-a8c3-46d240f38974"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Button"",
+                    ""id"": ""feae1db4-aefb-481b-8281-24e9eb5b5cc6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -165,6 +192,72 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1445e42-1502-4cf2-aecd-43ec32f7c842"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleRotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f59124bd-ab52-4aa8-9b35-4918e8e831e4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""d31a4d2c-ad86-432a-a8de-c86113dd54a5"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""dc088b33-2986-4b78-8a6f-4bef5932f53c"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26d3b0dc-54cb-4f21-bf37-d91efc954ea2"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b9cacfb-f7fa-42d4-bc09-9b8c5fd0f37e"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -176,6 +269,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_GroundMap_Directions = m_GroundMap.FindAction("Directions", throwIfNotFound: true);
         m_GroundMap_Aim = m_GroundMap.FindAction("Aim", throwIfNotFound: true);
         m_GroundMap_Interact = m_GroundMap.FindAction("Interact", throwIfNotFound: true);
+        m_GroundMap_SecondaryInteract = m_GroundMap.FindAction("SecondaryInteract", throwIfNotFound: true);
+        m_GroundMap_ToggleRotate = m_GroundMap.FindAction("ToggleRotate", throwIfNotFound: true);
+        m_GroundMap_Zoom = m_GroundMap.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,6 +336,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_GroundMap_Directions;
     private readonly InputAction m_GroundMap_Aim;
     private readonly InputAction m_GroundMap_Interact;
+    private readonly InputAction m_GroundMap_SecondaryInteract;
+    private readonly InputAction m_GroundMap_ToggleRotate;
+    private readonly InputAction m_GroundMap_Zoom;
     public struct GroundMapActions
     {
         private @PlayerInputs m_Wrapper;
@@ -247,6 +346,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Directions => m_Wrapper.m_GroundMap_Directions;
         public InputAction @Aim => m_Wrapper.m_GroundMap_Aim;
         public InputAction @Interact => m_Wrapper.m_GroundMap_Interact;
+        public InputAction @SecondaryInteract => m_Wrapper.m_GroundMap_SecondaryInteract;
+        public InputAction @ToggleRotate => m_Wrapper.m_GroundMap_ToggleRotate;
+        public InputAction @Zoom => m_Wrapper.m_GroundMap_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_GroundMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -265,6 +367,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @SecondaryInteract.started += instance.OnSecondaryInteract;
+            @SecondaryInteract.performed += instance.OnSecondaryInteract;
+            @SecondaryInteract.canceled += instance.OnSecondaryInteract;
+            @ToggleRotate.started += instance.OnToggleRotate;
+            @ToggleRotate.performed += instance.OnToggleRotate;
+            @ToggleRotate.canceled += instance.OnToggleRotate;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
         }
 
         private void UnregisterCallbacks(IGroundMapActions instance)
@@ -278,6 +389,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @SecondaryInteract.started -= instance.OnSecondaryInteract;
+            @SecondaryInteract.performed -= instance.OnSecondaryInteract;
+            @SecondaryInteract.canceled -= instance.OnSecondaryInteract;
+            @ToggleRotate.started -= instance.OnToggleRotate;
+            @ToggleRotate.performed -= instance.OnToggleRotate;
+            @ToggleRotate.canceled -= instance.OnToggleRotate;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
         }
 
         public void RemoveCallbacks(IGroundMapActions instance)
@@ -300,5 +420,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnDirections(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnSecondaryInteract(InputAction.CallbackContext context);
+        void OnToggleRotate(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
 }

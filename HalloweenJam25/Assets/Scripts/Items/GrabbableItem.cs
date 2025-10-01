@@ -31,8 +31,10 @@ public class GrabbableItem : InteractableObject
     /// </summary>
     [SerializeField] private float maxBreakDistance = 3.0f;
 
+    //Velocity
     private Vector3 exitVelocity;
     private Vector3 prevPosition;
+
     protected override void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,9 +42,6 @@ public class GrabbableItem : InteractableObject
 
     private void HookToPoint()
     {
-        if (hookPoint == null)
-            return;
-
         Vector3 toHook = hookPoint.position - transform.position;
         if (toHook.magnitude > maxBreakDistance)
         {
@@ -55,11 +54,14 @@ public class GrabbableItem : InteractableObject
         exitVelocity = (transform.position - prevPosition) / Time.deltaTime;
         prevPosition = transform.position;
     }
+
     protected override void FixedUpdate()
     {
+        if (hookPoint == null)
+            return;
+    
         HookToPoint();
     }
-    
     //Override----------------
     public override void Interact(Transform hook)
     {

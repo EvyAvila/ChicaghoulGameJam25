@@ -8,6 +8,7 @@ public abstract class InteractableObject : MonoBehaviour
     protected virtual void Update() { }
     protected virtual void FixedUpdate() { }
     public virtual void Interact() { }
+    public virtual void SecondaryInteract() { }
     public virtual void Interact(Transform t) { Interact(); }
     public virtual void StopInteraction() { }
 }

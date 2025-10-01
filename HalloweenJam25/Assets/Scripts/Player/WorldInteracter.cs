@@ -35,6 +35,22 @@ public class WorldInteracter : MonoBehaviour
         }
     }
 
+    public void CheckForSecondaryInteract()
+    {
+        Debug.DrawRay(interactPoint.transform.position, interactPoint.forward * rayLength, Color.green);
+
+        RaycastHit[] res = new RaycastHit[3];
+        if (Physics.RaycastNonAlloc(interactPoint.position, interactPoint.forward, res, rayLength, interactMask.value) > 0)
+        {
+            GameObject obj = res[0].collider.gameObject;
+
+            if (obj.TryGetComponent<InteractableObject>(out InteractableObject interactable))
+            {
+                interactable.SecondaryInteract();
+            }
+        }
+    }
+
     public void StopInteracting()
     {
         if (currentInteractingItem == null)
