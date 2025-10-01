@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,9 +15,15 @@ public class StatueObject : StationaryItem
     /// <summary>
     /// Rotation of object
     /// </summary>
+    public Direction FacingDirection { get { return facingDirection; } }
     private Direction facingDirection;
+    
+    //Rotation
     private Quaternion nextDirection;
     private bool rotating;
+
+    //Public Events
+    public event Action OnStatueRotated;
     protected override void Start()
     {
         if (transform.forward == Vector3.forward)
@@ -91,6 +98,8 @@ public class StatueObject : StationaryItem
                         facingDirection = Direction.WEST;
                     }
                 }
+
+                OnStatueRotated?.Invoke();
             }
         }
     }
