@@ -9,27 +9,37 @@ public class GrabbableItem : InteractableObject
     /// <summary>
     /// The items rigidbody componenet
     /// </summary>
-    private Rigidbody rb;
+    protected Rigidbody rb;
 
     /// <summary>
     /// Transform that the object will follow
     /// </summary>
-    [SerializeField] private Transform hookPoint;
+    [SerializeField] protected Transform hookPoint;
 
     /// <summary>
     /// Speed of item to follow its hookPoint
     /// </summary>
-    [SerializeField] private float hookMoveSpeed = 5.0f;
+    [SerializeField] protected float hookMoveSpeed = 5.0f;
 
     /// <summary>
     /// Drag applied to object when grabbed
     /// </summary>
-    [SerializeField] private float grabDrag = 25;
+    [SerializeField] protected float grabDrag = 25;
 
     /// <summary>
     /// DIstance at which grab disengages
     /// </summary>
     [SerializeField] private float maxBreakDistance = 3.0f;
+
+    /// <summary>
+    /// Toggle for keeping item aligned with player while carrying
+    /// </summary>
+    protected bool alignWithPlayer;
+
+    /// <summary>
+    /// Side to align with player grab
+    /// </summary>
+    [SerializeField] protected Direction alignSide;
 
     //Velocity
     private Vector3 exitVelocity;
@@ -50,6 +60,32 @@ public class GrabbableItem : InteractableObject
 
         Debug.DrawRay(transform.position, toHook, Color.red);
         rb.AddForce(toHook * hookMoveSpeed, ForceMode.Force);
+
+        if (alignWithPlayer)
+        {
+            Vector3 side = hookPoint.forward;
+            
+            switch (alignSide)
+            {
+                case Direction.NORTH:
+                    side = hookPoint.forward;
+                    break;
+                case Direction.EAST:
+                    side = hookPoint.right;
+                    break;
+                case Direction.SOUTH:
+                    side = -hookPoint.forward;
+                    break;
+                case Direction.WEST:
+                    side = -hookPoint.right;
+                    break;
+                default:
+                    side = hookPoint.forward;
+                    break;
+            }
+            Quaternion targetRotation = Quaternion.LookRotation(side, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 400 * Time.fixedDeltaTime);
+        }
 
         exitVelocity = (transform.position - prevPosition) / Time.deltaTime;
         prevPosition = transform.position;
