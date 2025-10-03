@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IPluggable 
 {
-    void ConnectToPoint(Transform t);
+    bool ConnectToPoint(Transform t);
     void Disconnect();
 }

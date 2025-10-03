@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,9 @@ using UnityEngine;
 public class PuzzleSocket : MonoBehaviour
 {
     private GameObject pluggedItem;
-    
+
+    //Public Events
+    public event Action OnItemAdded;
     public GameObject? GetPluggedItem()
     {
         return pluggedItem;
@@ -18,12 +21,17 @@ public class PuzzleSocket : MonoBehaviour
 
         if (other.gameObject.TryGetComponent<IPluggable>(out IPluggable i))
         {
-            i.ConnectToPoint(transform);
+            bool connectSuccess = i.ConnectToPoint(transform);
+            
+            //Disregard if item connect is disabled
+            if (!connectSuccess)
+                return;
+
             other.gameObject.GetComponent<PluggableItem>().OnItemDisconnect += OnItemDisconnect;
             pluggedItem = other.gameObject;
-        }
 
-        Debug.Log("Item plugged - " + pluggedItem.name);
+            OnItemAdded?.Invoke();
+        }
     }
 
     private void OnItemDisconnect()

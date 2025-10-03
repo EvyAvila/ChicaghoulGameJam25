@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -45,6 +46,9 @@ public class GrabbableItem : InteractableObject
     private Vector3 exitVelocity;
     private Vector3 prevPosition;
 
+    //Exposed Events
+    public event Action OnForgetItem; //--Used to dereference in player class, DOESN'T call StopInteract()
+
     protected override void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,13 +57,16 @@ public class GrabbableItem : InteractableObject
     private void HookToPoint()
     {
         Vector3 toHook = hookPoint.position - transform.position;
-        if (toHook.magnitude > maxBreakDistance)
-        {
-            StopInteraction();
-        }
 
         Debug.DrawRay(transform.position, toHook, Color.red);
         rb.AddForce(toHook * hookMoveSpeed, ForceMode.Force);
+        
+        //Break grab if too far
+        if (toHook.magnitude > maxBreakDistance)
+        {
+            StopInteraction();
+            return;
+        }
 
         if (alignWithPlayer)
         {
@@ -98,10 +105,24 @@ public class GrabbableItem : InteractableObject
     
         HookToPoint();
     }
+
+    /// <summary>
+    /// Used for dereferencing the item from within the Player.
+    /// Does not call StopInteraction()
+    /// </summary>
+    protected void ForgetItem()
+    {
+        OnForgetItem?.Invoke();
+    }
+
     //Override----------------
     public override void Interact(Transform hook)
     {
         hookPoint = hook;
+
+        if (rb.isKinematic)
+            rb.isKinematic = false;
+        
         rb.velocity = Vector3.zero;
         rb.useGravity = false;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
