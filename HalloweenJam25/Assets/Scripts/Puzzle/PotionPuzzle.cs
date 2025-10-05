@@ -37,7 +37,5 @@ public class PotionPuzzle : PuzzleBase
     private void OnDisable()
     {
         Cauldron.selected -= OnUpdateDetected;
-    
-        
     }
 }

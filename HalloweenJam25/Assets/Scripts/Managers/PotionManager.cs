@@ -6,9 +6,6 @@ public class PotionManager : MonoBehaviour
 {
     [SerializeField] private List<InteractableObject> potionButtons;
 
-    //private bool isInteractable;
-    //potionButtons[0].GetComponent<RotatingButtonObjects>().isInteractable = true;
-
 
     private void OnEnable()
     {

@@ -8,7 +8,6 @@ public class PotionCondition : PuzzleCondition
 {
     [SerializeField] public List<PotionColor> enteredColors;
 
-
     [SerializeField] private List<PotionColor> requiredColors;
 
     private int potionSize;
