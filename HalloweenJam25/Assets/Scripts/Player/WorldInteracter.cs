@@ -31,6 +31,12 @@ public class WorldInteracter : MonoBehaviour
             {
                 currentInteractingItem = interactable;
                 currentInteractingItem.Interact(holdPoint);
+
+                //If grabbable, subscribe to forget event
+                if (currentInteractingItem.TryGetComponent<GrabbableItem>(out GrabbableItem g))
+                {
+                    g.OnForgetItem += SoftStopInteract;
+                }
             }
         }
     }
@@ -51,10 +57,22 @@ public class WorldInteracter : MonoBehaviour
         }
     }
 
+    private void SoftStopInteract()
+    {
+        currentInteractingItem.GetComponent<GrabbableItem>().OnForgetItem -= SoftStopInteract;
+        currentInteractingItem = null;
+    }
+
     public void StopInteracting()
     {
         if (currentInteractingItem == null)
             return;
+
+        //If grabbable, unsubscribe
+        if (currentInteractingItem.TryGetComponent<GrabbableItem>(out GrabbableItem g))
+        {
+            g.OnForgetItem -= SoftStopInteract;
+        }
 
         currentInteractingItem.StopInteraction();
 

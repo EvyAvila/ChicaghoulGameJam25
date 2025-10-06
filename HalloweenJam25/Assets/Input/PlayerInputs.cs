@@ -80,6 +80,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RhythmNotes"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad6882b9-a3f0-48cc-be7f-3e2a95ab81ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,197 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d310b83-3cde-4fcd-8363-ef11d303d3ea"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e56db07d-d08b-40b0-9ef1-1c5678e40b52"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8425f64-360a-4a16-99a7-987c2a9dcdf3"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5cac5f2-2176-4ece-9130-531a0340a055"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4900af45-071c-4e42-b877-ad0b7d079b1d"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""119f82f8-5d4b-451c-89ee-31e6276e81ee"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8aa26cfa-236d-4ff2-9283-c953012dfc1b"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""RhythmMap"",
+            ""id"": ""9c4d59b5-1bc7-42f0-a841-7a50283fa1d3"",
+            ""actions"": [
+                {
+                    ""name"": ""RhythmNotes"",
+                    ""type"": ""Button"",
+                    ""id"": ""a7c6c469-e89d-43ce-ac69-8e4dbc814be1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""51a0c27a-dc9c-4517-bd21-a6281a72a572"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1a9e88f5-b3fb-4101-a7c3-47dc4f64e29a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4307eb62-46e1-43b6-a69b-13666e76b399"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c15cffbc-9d27-490d-a0b1-17c5fd0f472c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab15296f-9796-4a22-8442-67e5a5416b8b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef42d7d5-c16d-463a-842b-5b671cfc1e11"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e17ccae-b343-4e4a-9461-fb5d2e71a492"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a11047ca-5327-4b18-80b3-a762be36f296"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RhythmNotes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f13f3259-e6b1-4bda-a727-3129363ac331"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -272,6 +472,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_GroundMap_SecondaryInteract = m_GroundMap.FindAction("SecondaryInteract", throwIfNotFound: true);
         m_GroundMap_ToggleRotate = m_GroundMap.FindAction("ToggleRotate", throwIfNotFound: true);
         m_GroundMap_Zoom = m_GroundMap.FindAction("Zoom", throwIfNotFound: true);
+        m_GroundMap_RhythmNotes = m_GroundMap.FindAction("RhythmNotes", throwIfNotFound: true);
+        // RhythmMap
+        m_RhythmMap = asset.FindActionMap("RhythmMap", throwIfNotFound: true);
+        m_RhythmMap_RhythmNotes = m_RhythmMap.FindAction("RhythmNotes", throwIfNotFound: true);
+        m_RhythmMap_Leave = m_RhythmMap.FindAction("Leave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +544,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_GroundMap_SecondaryInteract;
     private readonly InputAction m_GroundMap_ToggleRotate;
     private readonly InputAction m_GroundMap_Zoom;
+    private readonly InputAction m_GroundMap_RhythmNotes;
     public struct GroundMapActions
     {
         private @PlayerInputs m_Wrapper;
@@ -349,6 +555,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @SecondaryInteract => m_Wrapper.m_GroundMap_SecondaryInteract;
         public InputAction @ToggleRotate => m_Wrapper.m_GroundMap_ToggleRotate;
         public InputAction @Zoom => m_Wrapper.m_GroundMap_Zoom;
+        public InputAction @RhythmNotes => m_Wrapper.m_GroundMap_RhythmNotes;
         public InputActionMap Get() { return m_Wrapper.m_GroundMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -376,6 +583,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
+            @RhythmNotes.started += instance.OnRhythmNotes;
+            @RhythmNotes.performed += instance.OnRhythmNotes;
+            @RhythmNotes.canceled += instance.OnRhythmNotes;
         }
 
         private void UnregisterCallbacks(IGroundMapActions instance)
@@ -398,6 +608,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
+            @RhythmNotes.started -= instance.OnRhythmNotes;
+            @RhythmNotes.performed -= instance.OnRhythmNotes;
+            @RhythmNotes.canceled -= instance.OnRhythmNotes;
         }
 
         public void RemoveCallbacks(IGroundMapActions instance)
@@ -415,6 +628,60 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public GroundMapActions @GroundMap => new GroundMapActions(this);
+
+    // RhythmMap
+    private readonly InputActionMap m_RhythmMap;
+    private List<IRhythmMapActions> m_RhythmMapActionsCallbackInterfaces = new List<IRhythmMapActions>();
+    private readonly InputAction m_RhythmMap_RhythmNotes;
+    private readonly InputAction m_RhythmMap_Leave;
+    public struct RhythmMapActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public RhythmMapActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RhythmNotes => m_Wrapper.m_RhythmMap_RhythmNotes;
+        public InputAction @Leave => m_Wrapper.m_RhythmMap_Leave;
+        public InputActionMap Get() { return m_Wrapper.m_RhythmMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RhythmMapActions set) { return set.Get(); }
+        public void AddCallbacks(IRhythmMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RhythmMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RhythmMapActionsCallbackInterfaces.Add(instance);
+            @RhythmNotes.started += instance.OnRhythmNotes;
+            @RhythmNotes.performed += instance.OnRhythmNotes;
+            @RhythmNotes.canceled += instance.OnRhythmNotes;
+            @Leave.started += instance.OnLeave;
+            @Leave.performed += instance.OnLeave;
+            @Leave.canceled += instance.OnLeave;
+        }
+
+        private void UnregisterCallbacks(IRhythmMapActions instance)
+        {
+            @RhythmNotes.started -= instance.OnRhythmNotes;
+            @RhythmNotes.performed -= instance.OnRhythmNotes;
+            @RhythmNotes.canceled -= instance.OnRhythmNotes;
+            @Leave.started -= instance.OnLeave;
+            @Leave.performed -= instance.OnLeave;
+            @Leave.canceled -= instance.OnLeave;
+        }
+
+        public void RemoveCallbacks(IRhythmMapActions instance)
+        {
+            if (m_Wrapper.m_RhythmMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRhythmMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RhythmMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RhythmMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RhythmMapActions @RhythmMap => new RhythmMapActions(this);
     public interface IGroundMapActions
     {
         void OnDirections(InputAction.CallbackContext context);
@@ -423,5 +690,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnSecondaryInteract(InputAction.CallbackContext context);
         void OnToggleRotate(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnRhythmNotes(InputAction.CallbackContext context);
+    }
+    public interface IRhythmMapActions
+    {
+        void OnRhythmNotes(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
 }
