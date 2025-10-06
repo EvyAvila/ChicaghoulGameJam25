@@ -10,6 +10,7 @@ public class PlayerInputHub : MonoBehaviour
     /// </summary>
     private RawInputReader inputReader;
 
+
     /// <summary>
     /// Camera aiming component
     /// </summary>

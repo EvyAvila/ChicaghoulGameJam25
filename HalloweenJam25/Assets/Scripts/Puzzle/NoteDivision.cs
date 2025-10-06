@@ -9,6 +9,7 @@ public class NoteDivision
 {
     [SerializeField] private float steps;
     [SerializeField] private UnityEvent IntervalEvent;
+    [SerializeField] private UnityEvent OnBeatReset;
     private float lastInterval;
     public float GetIntervalLength(float bpm)
     {
@@ -17,11 +18,16 @@ public class NoteDivision
 
     public void CheckForNewInterval(float interval)
     {
+        interval += 1;
         float floored = Mathf.FloorToInt(interval);
 
         if (floored != lastInterval)
         {
             lastInterval = floored;
+
+            if (lastInterval == 1)
+                OnBeatReset.Invoke();
+
             IntervalEvent.Invoke();
         }
     }

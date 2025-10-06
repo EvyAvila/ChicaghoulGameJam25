@@ -458,7 +458,7 @@ MonoBehaviour:
   hookMoveSpeed: 20
   grabDrag: 5
   maxBreakDistance: 3
-  alignSide: 0
+  alignSide: 3
   value: 3
   bookText: {fileID: 1706269745}
 --- !u!54 &50648636
@@ -2215,7 +2215,7 @@ Transform:
   m_GameObject: {fileID: 404383889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.967, y: 2.7499998, z: -20.95}
+  m_LocalPosition: {x: -2.087, y: 2.7499998, z: -20.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5532,7 +5532,7 @@ MonoBehaviour:
   hookMoveSpeed: 20
   grabDrag: 5
   maxBreakDistance: 3
-  alignSide: 0
+  alignSide: 1
   value: 4
   bookText: {fileID: 1370898227}
 --- !u!54 &852136819
@@ -12806,7 +12806,7 @@ Transform:
   m_GameObject: {fileID: 1362650744}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.967, y: 1, z: -20.95}
+  m_LocalPosition: {x: -2.087, y: 1, z: -20.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13091,7 +13091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4553c7d6df98577468cc429db73ec5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BPM: 80
+  BPM: 100
   intervals:
   - steps: 0.5
     IntervalEvent:
@@ -13099,7 +13099,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1406350721}
           m_TargetAssemblyTypeName: RhythmRunner, Assembly-CSharp
-          m_MethodName: Eigth
+          m_MethodName: IncrementBeat
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13109,13 +13109,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - steps: 0.25
-    IntervalEvent:
+    OnBeatReset:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1406350721}
           m_TargetAssemblyTypeName: RhythmRunner, Assembly-CSharp
-          m_MethodName: Sixteenth
+          m_MethodName: ResetBeat
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13132,6 +13131,21 @@ MonoBehaviour:
         - m_Target: {fileID: 1406350721}
           m_TargetAssemblyTypeName: RhythmRunner, Assembly-CSharp
           m_MethodName: Quarter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnBeatReset:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1406350721}
+          m_TargetAssemblyTypeName: RhythmRunner, Assembly-CSharp
+          m_MethodName: ResetBeat
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13188,7 +13202,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 57a00266e88b0c0479bfa2796217ec5d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 873f257695196a841ae76a5f8ea62e68, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -14337,7 +14351,7 @@ Transform:
   m_GameObject: {fileID: 1527573346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.967, y: 2.7499998, z: -20.95}
+  m_LocalPosition: {x: -2.087, y: 2.7499998, z: -20.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

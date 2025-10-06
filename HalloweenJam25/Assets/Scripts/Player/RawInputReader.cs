@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class RawInputReader : MonoBehaviour
 {
     private PlayerInputs _inputs;
+    private InputAction _rhythmInputsActions;
 
     //Exposed Events
     public EventHandler<Vector2> OnDirectionPerfomed;
@@ -31,6 +32,8 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.SecondaryInteract.performed += OnSecondaryInteractPerformed;
         _inputs.GroundMap.Interact.canceled += OnInteractStopped;
         _inputs.GroundMap.ToggleRotate.started+= OnToggleRotate;
+
+        //_rhythmInputsAction = I
     }
 
     private void OnSecondaryInteractPerformed(InputAction.CallbackContext obj)

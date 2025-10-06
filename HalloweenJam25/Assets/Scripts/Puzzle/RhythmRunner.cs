@@ -22,12 +22,18 @@ public class RhythmRunner : MonoBehaviour
     [SerializeField]private bool countBeats;
 
     /// <summary>
+    /// Current beat counted on Eigths
+    /// </summary>
+    private float currentBeat;
+
+    /// <summary>
     /// Audio source of the music
     /// </summary>
     private AudioSource source;
 
     private void Start()
     {
+        currentBeat = 0.5f;
         source = GetComponent<AudioSource>();
     }
 
@@ -52,6 +58,15 @@ public class RhythmRunner : MonoBehaviour
         }
     }
 
+    public void IncrementBeat()
+    {
+        currentBeat += 0.5f;
+    }
+
+    public void ResetBeat()
+    {
+        currentBeat = .5f;
+    }
     private void Update()
     {
         if (countBeats)
