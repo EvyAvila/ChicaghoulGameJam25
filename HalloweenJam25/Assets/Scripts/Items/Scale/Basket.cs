@@ -34,7 +34,7 @@ public class Basket : PuzzleBase
         solveCondition = s => s.isCorrect();
         Cover.SetActive(false);
 
-        yield return null; // wait 1 frame
+        yield return null; 
 
         Scanner.itemObj += OnUpdateItem;
     }
@@ -46,16 +46,7 @@ public class Basket : PuzzleBase
         {
             SolvePuzzle();
         }
-        else if(condition.isIncorrect)
-        {
-            //Dump out
-            Vector3 v = new Vector3(120f, 0, 0);
-            transform.DOLocalRotate(v, 2f).OnComplete(() =>
-            {
-                transform.DOLocalRotate(Vector3.zero, 2f).OnComplete(() => 
-                { condition.isIncorrect = false; });
-            });            
-        }    
+        
     }
 
     private void OnDisable()
@@ -66,7 +57,6 @@ public class Basket : PuzzleBase
     public void Complete()
     {
         Cover.SetActive(true);
-        Debug.Log("Basket is fulled and correct");
     }    
 
 
