@@ -8,9 +8,9 @@ using static Yarn.Compiler.BasicBlock;
 public class BasketCondition : PuzzleCondition
 {
     [SerializeField] public List<ItemIdentifier> itemsEntered;
-    [SerializeField] private List<ItemIdentifier> requiredItems;
+    //[SerializeField] private List<ItemIdentifier> requiredItems;
 
-    private int requiredAmount;
+    [SerializeField] private int requiredAmount;
   
     private float getYPosition;
 
@@ -19,7 +19,7 @@ public class BasketCondition : PuzzleCondition
 
     private void Start()
     {
-        requiredAmount = requiredItems.Count;
+        requiredAmount = requiredAmount == 0 ? 2 : requiredAmount;
         getYPosition = transform.position.y;
     }
 
@@ -31,8 +31,8 @@ public class BasketCondition : PuzzleCondition
                 return false;
 
             
-            bool hasItem = itemsEntered.Where(x => x.itemName == requiredItems[i].itemName).Any();            
-            if (itemsEntered[i].itemWorth != item.Wealth || !hasItem)
+            //bool hasItem = itemsEntered.Where(x => x.itemName == requiredItems[i].itemName).Any();            
+            if (itemsEntered[i].itemWorth != item.Wealth) // || !hasItem)
             {
                 itemsEntered.Clear();
                 DumpItemsOut();

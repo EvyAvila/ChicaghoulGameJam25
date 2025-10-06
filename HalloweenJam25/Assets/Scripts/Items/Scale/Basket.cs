@@ -41,11 +41,16 @@ public class Basket : PuzzleBase
 
     private void OnUpdateItem(ItemIdentifier i)
     {
-        condition.CanFitIntoBasket(i);
-        if (solveCondition(condition))
+        if(condition.CanFitIntoBasket(i))
         {
-            SolvePuzzle();
+            if (solveCondition(condition))
+            {
+                SolvePuzzle();
+            }
         }
+
+        //condition.CanFitIntoBasket(i);
+       
         
     }
 
