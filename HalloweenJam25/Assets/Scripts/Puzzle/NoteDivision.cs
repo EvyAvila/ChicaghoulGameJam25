@@ -31,4 +31,9 @@ public class NoteDivision
             IntervalEvent.Invoke();
         }
     }
+
+    public void ResetInterval()
+    {
+        lastInterval = 1;
+    }
 }

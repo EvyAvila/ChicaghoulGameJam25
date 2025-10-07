@@ -62,33 +62,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=0.06,pressPoint=0.05)"",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ToggleRotate"",
-                    ""type"": ""Button"",
-                    ""id"": ""dd627db2-30b6-484f-a8c3-46d240f38974"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Zoom"",
-                    ""type"": ""Button"",
-                    ""id"": ""feae1db4-aefb-481b-8281-24e9eb5b5cc6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RhythmNotes"",
-                    ""type"": ""Button"",
-                    ""id"": ""ad6882b9-a3f0-48cc-be7f-3e2a95ab81ec"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -204,50 +177,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f1445e42-1502-4cf2-aecd-43ec32f7c842"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleRotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""f59124bd-ab52-4aa8-9b35-4918e8e831e4"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""d31a4d2c-ad86-432a-a8de-c86113dd54a5"",
-                    ""path"": ""<Mouse>/scroll/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""dc088b33-2986-4b78-8a6f-4bef5932f53c"",
-                    ""path"": ""<Mouse>/scroll/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
                     ""id"": ""26d3b0dc-54cb-4f21-bf37-d91efc954ea2"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -267,83 +196,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7d310b83-3cde-4fcd-8363-ef11d303d3ea"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e56db07d-d08b-40b0-9ef1-1c5678e40b52"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a8425f64-360a-4a16-99a7-987c2a9dcdf3"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e5cac5f2-2176-4ece-9130-531a0340a055"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4900af45-071c-4e42-b877-ad0b7d079b1d"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""119f82f8-5d4b-451c-89ee-31e6276e81ee"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8aa26cfa-236d-4ff2-9283-c953012dfc1b"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -352,15 +204,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             ""id"": ""9c4d59b5-1bc7-42f0-a841-7a50283fa1d3"",
             ""actions"": [
                 {
-                    ""name"": ""RhythmNotes"",
-                    ""type"": ""Button"",
-                    ""id"": ""a7c6c469-e89d-43ce-ac69-8e4dbc814be1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Leave"",
                     ""type"": ""Button"",
                     ""id"": ""51a0c27a-dc9c-4517-bd21-a6281a72a572"",
@@ -368,86 +211,72 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""690f20e7-79bd-4e8f-b125-db294defdd49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce3635d3-d740-4435-bc27-4e81cd55e7ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""f321a8b1-f121-42b0-80fe-a8d22886f020"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SPACE"",
+                    ""type"": ""Button"",
+                    ""id"": ""47635573-60ea-4013-af4d-ff27b1a3021f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""J"",
+                    ""type"": ""Button"",
+                    ""id"": ""562e82e9-284a-4fce-b186-6c77595f9e4b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""K"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9c176b2-88a3-436c-9a3c-f3c55c47859f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""L"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b410008-630a-4595-bbfc-3d4def5f0b84"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""1a9e88f5-b3fb-4101-a7c3-47dc4f64e29a"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4307eb62-46e1-43b6-a69b-13666e76b399"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c15cffbc-9d27-490d-a0b1-17c5fd0f472c"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ab15296f-9796-4a22-8442-67e5a5416b8b"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ef42d7d5-c16d-463a-842b-5b671cfc1e11"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8e17ccae-b343-4e4a-9461-fb5d2e71a492"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a11047ca-5327-4b18-80b3-a762be36f296"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RhythmNotes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""f13f3259-e6b1-4bda-a727-3129363ac331"",
@@ -456,6 +285,83 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1dc9e531-0cae-4d50-a54d-4a105ef57d98"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0dd41c9-4acd-419e-92eb-29866f44dd4a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a6d6929-3302-4460-b0de-9da22735b44f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11ae031e-4e61-467d-b75e-a2eb52345c1e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SPACE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af035ac4-e221-4efa-b44a-61b3244e216f"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""J"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03462826-2525-4b00-a133-ab57fa3d1c89"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""K"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2cefc3f-fb9a-4cc4-9025-80162fca1cf9"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""L"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -470,13 +376,16 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_GroundMap_Aim = m_GroundMap.FindAction("Aim", throwIfNotFound: true);
         m_GroundMap_Interact = m_GroundMap.FindAction("Interact", throwIfNotFound: true);
         m_GroundMap_SecondaryInteract = m_GroundMap.FindAction("SecondaryInteract", throwIfNotFound: true);
-        m_GroundMap_ToggleRotate = m_GroundMap.FindAction("ToggleRotate", throwIfNotFound: true);
-        m_GroundMap_Zoom = m_GroundMap.FindAction("Zoom", throwIfNotFound: true);
-        m_GroundMap_RhythmNotes = m_GroundMap.FindAction("RhythmNotes", throwIfNotFound: true);
         // RhythmMap
         m_RhythmMap = asset.FindActionMap("RhythmMap", throwIfNotFound: true);
-        m_RhythmMap_RhythmNotes = m_RhythmMap.FindAction("RhythmNotes", throwIfNotFound: true);
         m_RhythmMap_Leave = m_RhythmMap.FindAction("Leave", throwIfNotFound: true);
+        m_RhythmMap_A = m_RhythmMap.FindAction("A", throwIfNotFound: true);
+        m_RhythmMap_S = m_RhythmMap.FindAction("S", throwIfNotFound: true);
+        m_RhythmMap_D = m_RhythmMap.FindAction("D", throwIfNotFound: true);
+        m_RhythmMap_SPACE = m_RhythmMap.FindAction("SPACE", throwIfNotFound: true);
+        m_RhythmMap_J = m_RhythmMap.FindAction("J", throwIfNotFound: true);
+        m_RhythmMap_K = m_RhythmMap.FindAction("K", throwIfNotFound: true);
+        m_RhythmMap_L = m_RhythmMap.FindAction("L", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -542,9 +451,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_GroundMap_Aim;
     private readonly InputAction m_GroundMap_Interact;
     private readonly InputAction m_GroundMap_SecondaryInteract;
-    private readonly InputAction m_GroundMap_ToggleRotate;
-    private readonly InputAction m_GroundMap_Zoom;
-    private readonly InputAction m_GroundMap_RhythmNotes;
     public struct GroundMapActions
     {
         private @PlayerInputs m_Wrapper;
@@ -553,9 +459,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_GroundMap_Aim;
         public InputAction @Interact => m_Wrapper.m_GroundMap_Interact;
         public InputAction @SecondaryInteract => m_Wrapper.m_GroundMap_SecondaryInteract;
-        public InputAction @ToggleRotate => m_Wrapper.m_GroundMap_ToggleRotate;
-        public InputAction @Zoom => m_Wrapper.m_GroundMap_Zoom;
-        public InputAction @RhythmNotes => m_Wrapper.m_GroundMap_RhythmNotes;
         public InputActionMap Get() { return m_Wrapper.m_GroundMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -577,15 +480,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @SecondaryInteract.started += instance.OnSecondaryInteract;
             @SecondaryInteract.performed += instance.OnSecondaryInteract;
             @SecondaryInteract.canceled += instance.OnSecondaryInteract;
-            @ToggleRotate.started += instance.OnToggleRotate;
-            @ToggleRotate.performed += instance.OnToggleRotate;
-            @ToggleRotate.canceled += instance.OnToggleRotate;
-            @Zoom.started += instance.OnZoom;
-            @Zoom.performed += instance.OnZoom;
-            @Zoom.canceled += instance.OnZoom;
-            @RhythmNotes.started += instance.OnRhythmNotes;
-            @RhythmNotes.performed += instance.OnRhythmNotes;
-            @RhythmNotes.canceled += instance.OnRhythmNotes;
         }
 
         private void UnregisterCallbacks(IGroundMapActions instance)
@@ -602,15 +496,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @SecondaryInteract.started -= instance.OnSecondaryInteract;
             @SecondaryInteract.performed -= instance.OnSecondaryInteract;
             @SecondaryInteract.canceled -= instance.OnSecondaryInteract;
-            @ToggleRotate.started -= instance.OnToggleRotate;
-            @ToggleRotate.performed -= instance.OnToggleRotate;
-            @ToggleRotate.canceled -= instance.OnToggleRotate;
-            @Zoom.started -= instance.OnZoom;
-            @Zoom.performed -= instance.OnZoom;
-            @Zoom.canceled -= instance.OnZoom;
-            @RhythmNotes.started -= instance.OnRhythmNotes;
-            @RhythmNotes.performed -= instance.OnRhythmNotes;
-            @RhythmNotes.canceled -= instance.OnRhythmNotes;
         }
 
         public void RemoveCallbacks(IGroundMapActions instance)
@@ -632,14 +517,26 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     // RhythmMap
     private readonly InputActionMap m_RhythmMap;
     private List<IRhythmMapActions> m_RhythmMapActionsCallbackInterfaces = new List<IRhythmMapActions>();
-    private readonly InputAction m_RhythmMap_RhythmNotes;
     private readonly InputAction m_RhythmMap_Leave;
+    private readonly InputAction m_RhythmMap_A;
+    private readonly InputAction m_RhythmMap_S;
+    private readonly InputAction m_RhythmMap_D;
+    private readonly InputAction m_RhythmMap_SPACE;
+    private readonly InputAction m_RhythmMap_J;
+    private readonly InputAction m_RhythmMap_K;
+    private readonly InputAction m_RhythmMap_L;
     public struct RhythmMapActions
     {
         private @PlayerInputs m_Wrapper;
         public RhythmMapActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @RhythmNotes => m_Wrapper.m_RhythmMap_RhythmNotes;
         public InputAction @Leave => m_Wrapper.m_RhythmMap_Leave;
+        public InputAction @A => m_Wrapper.m_RhythmMap_A;
+        public InputAction @S => m_Wrapper.m_RhythmMap_S;
+        public InputAction @D => m_Wrapper.m_RhythmMap_D;
+        public InputAction @SPACE => m_Wrapper.m_RhythmMap_SPACE;
+        public InputAction @J => m_Wrapper.m_RhythmMap_J;
+        public InputAction @K => m_Wrapper.m_RhythmMap_K;
+        public InputAction @L => m_Wrapper.m_RhythmMap_L;
         public InputActionMap Get() { return m_Wrapper.m_RhythmMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -649,22 +546,58 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_RhythmMapActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_RhythmMapActionsCallbackInterfaces.Add(instance);
-            @RhythmNotes.started += instance.OnRhythmNotes;
-            @RhythmNotes.performed += instance.OnRhythmNotes;
-            @RhythmNotes.canceled += instance.OnRhythmNotes;
             @Leave.started += instance.OnLeave;
             @Leave.performed += instance.OnLeave;
             @Leave.canceled += instance.OnLeave;
+            @A.started += instance.OnA;
+            @A.performed += instance.OnA;
+            @A.canceled += instance.OnA;
+            @S.started += instance.OnS;
+            @S.performed += instance.OnS;
+            @S.canceled += instance.OnS;
+            @D.started += instance.OnD;
+            @D.performed += instance.OnD;
+            @D.canceled += instance.OnD;
+            @SPACE.started += instance.OnSPACE;
+            @SPACE.performed += instance.OnSPACE;
+            @SPACE.canceled += instance.OnSPACE;
+            @J.started += instance.OnJ;
+            @J.performed += instance.OnJ;
+            @J.canceled += instance.OnJ;
+            @K.started += instance.OnK;
+            @K.performed += instance.OnK;
+            @K.canceled += instance.OnK;
+            @L.started += instance.OnL;
+            @L.performed += instance.OnL;
+            @L.canceled += instance.OnL;
         }
 
         private void UnregisterCallbacks(IRhythmMapActions instance)
         {
-            @RhythmNotes.started -= instance.OnRhythmNotes;
-            @RhythmNotes.performed -= instance.OnRhythmNotes;
-            @RhythmNotes.canceled -= instance.OnRhythmNotes;
             @Leave.started -= instance.OnLeave;
             @Leave.performed -= instance.OnLeave;
             @Leave.canceled -= instance.OnLeave;
+            @A.started -= instance.OnA;
+            @A.performed -= instance.OnA;
+            @A.canceled -= instance.OnA;
+            @S.started -= instance.OnS;
+            @S.performed -= instance.OnS;
+            @S.canceled -= instance.OnS;
+            @D.started -= instance.OnD;
+            @D.performed -= instance.OnD;
+            @D.canceled -= instance.OnD;
+            @SPACE.started -= instance.OnSPACE;
+            @SPACE.performed -= instance.OnSPACE;
+            @SPACE.canceled -= instance.OnSPACE;
+            @J.started -= instance.OnJ;
+            @J.performed -= instance.OnJ;
+            @J.canceled -= instance.OnJ;
+            @K.started -= instance.OnK;
+            @K.performed -= instance.OnK;
+            @K.canceled -= instance.OnK;
+            @L.started -= instance.OnL;
+            @L.performed -= instance.OnL;
+            @L.canceled -= instance.OnL;
         }
 
         public void RemoveCallbacks(IRhythmMapActions instance)
@@ -688,13 +621,16 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSecondaryInteract(InputAction.CallbackContext context);
-        void OnToggleRotate(InputAction.CallbackContext context);
-        void OnZoom(InputAction.CallbackContext context);
-        void OnRhythmNotes(InputAction.CallbackContext context);
     }
     public interface IRhythmMapActions
     {
-        void OnRhythmNotes(InputAction.CallbackContext context);
         void OnLeave(InputAction.CallbackContext context);
+        void OnA(InputAction.CallbackContext context);
+        void OnS(InputAction.CallbackContext context);
+        void OnD(InputAction.CallbackContext context);
+        void OnSPACE(InputAction.CallbackContext context);
+        void OnJ(InputAction.CallbackContext context);
+        void OnK(InputAction.CallbackContext context);
+        void OnL(InputAction.CallbackContext context);
     }
 }
