@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/ObjectsStyles.uss?fileID=7433441132597879392&amp;guid=a7b6ad83ad0dc2b439038525ff387a3f&amp;type=3#ObjectsStyles" />
+    <ui:VisualElement name="Bottles" style="flex-grow: 0; flex-direction: row; flex-shrink: 0; width: 20%; align-self: flex-end; height: 21%; top: 827px;">
+        <ui:ProgressBar value="4" title="my-progress" high-value="4" name="BottleContainer" low-value="0" class="RotatedObj" style="align-self: center; justify-content: center; align-items: stretch; width: 318px; height: 65px; margin-top: 15px; margin-bottom: 15px; margin-right: 10px; margin-left: 10px;" />
+        <ui:ProgressBar value="2.5" title="my-progress" high-value="4" name="BottleContainer" low-value="0" class="RotatedObj" style="align-self: center; justify-content: center; align-items: stretch; width: 318px; height: 65px; margin-top: 15px; margin-bottom: 15px; margin-right: 10px; margin-left: 10px;" />
+        <ui:ProgressBar value="1" title="my-progress" high-value="4" name="BottleContainer" low-value="0" class="RotatedObj" style="align-self: center; justify-content: center; align-items: stretch; width: 318px; height: 65px; margin-top: 15px; margin-bottom: 15px; margin-right: 10px; margin-left: 10px;" />
+    </ui:VisualElement>
+</ui:UXML>

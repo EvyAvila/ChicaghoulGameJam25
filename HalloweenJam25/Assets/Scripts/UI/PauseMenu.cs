@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Device;
 using UnityEngine.UIElements;
 
-public class PauseMenu : BaseMenu
+public class PauseMenu : MonoBehaviour
 {
     private Button restartBtn, quitGameBtn;
 
-    protected override void Awake()
+    protected VisualElement root;
+    public UIDocument uiDocument;
+
+
+    private void OnEnable()
     {
-        scriptName = SceneScript.PauseMenu;
+        root = uiDocument.rootVisualElement;
+        SetProperties();
     }
 
-    protected override void SetProperties()
+    private void OnDisable()
+    {
+        UnSetProperties();
+    }
+
+    protected void SetProperties()
     {
         restartBtn = root.Q("RestartBtn") as Button;
         quitGameBtn = root.Q("QuitBtn") as Button;
@@ -21,7 +32,7 @@ public class PauseMenu : BaseMenu
         quitGameBtn.RegisterCallback<ClickEvent>(QuitGameplay);
     }
 
-    protected override void UnSetProperties()
+    protected void UnSetProperties()
     {
         restartBtn.UnregisterCallback<ClickEvent>(RestartGameplay);
         quitGameBtn.UnregisterCallback<ClickEvent>(QuitGameplay);
@@ -34,6 +45,7 @@ public class PauseMenu : BaseMenu
 
     private void QuitGameplay(ClickEvent evt)
     {
+        this.gameObject.SetActive(false);
         UIManager.Instance.LoadNextMenu(SceneScript.MainMenu);
     }
 }
