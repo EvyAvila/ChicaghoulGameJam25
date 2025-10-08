@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class RhythmRunner : MonoBehaviour
+public class RhythmRunner : InteractableObject
 {
     /// <summary>
     /// BPM of the track, manually
@@ -43,9 +43,10 @@ public class RhythmRunner : MonoBehaviour
 
 
     //Events
+    public event Action OnSongStarted;
     public event Action OnBeatIncrement;
-
-    private void Start()
+    public event Action OnSongFinished;
+    protected override void Start()
     {
         currentBeat = 0.5f;
         totalBeats = Song.length * (BPM / 60.0f);
@@ -73,6 +74,7 @@ public class RhythmRunner : MonoBehaviour
         source.PlayOneShot(CountInClip);
         source.PlayDelayed(CountInClip.length);
         yield return new WaitForSeconds(CountInClip.length);
+        OnSongStarted?.Invoke();
         countBeats = true;
         dspTime = AudioSettings.dspTime;
         yield return null;
@@ -80,6 +82,7 @@ public class RhythmRunner : MonoBehaviour
     public void StopCounting()
     {
         countBeats = false;
+        OnSongFinished?.Invoke();
     }
     private void CountOnDivisions()
     {
@@ -117,21 +120,24 @@ public class RhythmRunner : MonoBehaviour
     {
         return currentBeat;
     }
-    private void Update()
+    protected override void Update()
     {
         if (countBeats)
         {
             CountOnDivisions();
 
             if (!source.isPlaying)
-                countBeats = false;
+            {
+                StopCounting();
+                ResetBeat();
+            }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    //Overrides
+    public override void Interact()
     {
         if (!countBeats)
-        {
             StartIntro();
-        }
     }
 }

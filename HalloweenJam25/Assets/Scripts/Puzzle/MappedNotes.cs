@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class MappedNotes : MonoBehaviour
+public class MappedNotes : PuzzleBase
 {
     [SerializeField] private SongMeasuresSO MeasuresSO;
 
@@ -12,6 +12,11 @@ public class MappedNotes : MonoBehaviour
     /// Attatched song runner
     /// </summary>
     private RhythmRunner rhythmRunner;
+
+    /// <summary>
+    /// Puzzle Condition
+    /// </summary>
+    private RhythmValidation condition;
 
     /// <summary>
     /// Keyboard inputs
@@ -24,7 +29,6 @@ public class MappedNotes : MonoBehaviour
 
     private int noteIndex;
     private int goodCount;
-    private int badCount;
 
     //Keyboard Notes
     public RhythmNote[] A;
@@ -50,10 +54,15 @@ public class MappedNotes : MonoBehaviour
 
     private void Start()
     {
+        condition = GetComponent<RhythmValidation>();
+        solveCondition = val => val.isCorrect();
+
         noteIndex = -1;
 
         rhythmRunner = GetComponent<RhythmRunner>();
         rhythmRunner.OnBeatIncrement += OnBeatIncrement;
+        rhythmRunner.OnSongFinished += OnRhythmFinished;
+        rhythmRunner.OnSongStarted += OnSongStart;
 
         ANote = new KeyboardNote();
         SNote = new KeyboardNote();
@@ -94,6 +103,8 @@ public class MappedNotes : MonoBehaviour
             SetSustains(L, NoteKey.L);
         }
 
+        condition.SetTotalNotes(totalNoteCount);
+
         arrayDict = new Dictionary<string, RhythmNote[]>()
         {
             { "a", A},
@@ -116,6 +127,8 @@ public class MappedNotes : MonoBehaviour
             { "l", LNote}
         };
     }
+
+
     private void OnEnable()
     {
         if (rhythmInputs == null)
@@ -184,6 +197,8 @@ public class MappedNotes : MonoBehaviour
         rhythmInputs.RhythmMap.Leave.started -= OnLeave;
 
         rhythmRunner.OnBeatIncrement -= OnBeatIncrement;
+        rhythmRunner.OnSongFinished -= OnRhythmFinished;
+        rhythmRunner.OnSongStarted -= OnSongStart;
     }
     private void CopyNotes(ref RhythmNote[] dest, ref RhythmNote[] src)
     {
@@ -231,7 +246,6 @@ public class MappedNotes : MonoBehaviour
         if (arr[noteIndex].Key == NoteKey.NONE)
         {
             Debug.Log("No key this time");
-            badCount++;
             return;
         }
 
@@ -240,14 +254,13 @@ public class MappedNotes : MonoBehaviour
         if (diff < marginOfError)
         {
             Debug.Log("In Time");
-            arr[noteIndex].Success = true;
+            arr[noteIndex].PlaySuccess();
             goodCount++;
         }
         else
         {
             Debug.Log("Bad Time");
-            arr[noteIndex].Success = false;
-            badCount++;
+            arr[noteIndex].ResetSuccess();
         }            
     }
 
@@ -258,7 +271,6 @@ public class MappedNotes : MonoBehaviour
         {
             if (note.HeldDown)
             {
-                badCount++;
                 return;
             }
         }
@@ -275,12 +287,11 @@ public class MappedNotes : MonoBehaviour
                     if (!arr[noteIndex-1].Success)
                     {
                         Debug.Log("Cant continue sustain");
-                        badCount++;
                         return;
                     }
 
                     Debug.Log("Continued sustain");
-                    arr[noteIndex].Success = true;
+                    arr[noteIndex].PlaySuccess();
                     goodCount++;
                     return;
                 }
@@ -289,12 +300,11 @@ public class MappedNotes : MonoBehaviour
             if (note.PreviouslyHeld)
             {
                 Debug.Log("Wrong sustain");
-                badCount++;
                 return;
             }
 
             Debug.Log("Final - Continued sustain");
-            arr[noteIndex].Success = true;
+            arr[noteIndex].PlaySuccess();
             goodCount++;
             return;
         }
@@ -321,12 +331,49 @@ public class MappedNotes : MonoBehaviour
         if (noteIndex >= A.Length - 1)
             acceptInput = false;
     }
-    public void ResetIndex()
-    {
-        noteIndex = 0;
-    }
     private void OnCollisionEnter(Collision collision)
     {
         acceptInput = true;
+    }
+    private void OnSongStart()
+    {
+        acceptInput = true;
+    }
+    private void OnRhythmFinished()
+    {
+        condition.UpdatePlayedNotes(goodCount);
+
+        if (solveCondition(condition))
+        {
+            SolvePuzzle();
+        }
+        else
+        {
+            ResetComponent();
+        }
+    }
+
+    private void ResetComponent()
+    {
+        goodCount = 0;
+        noteIndex = -1;
+
+        for (int i = 0; i < A.Length; i++)
+        {
+            A[i].ResetSuccess();
+            S[i].ResetSuccess();
+            D[i].ResetSuccess();
+            SPACE[i].ResetSuccess();
+            J[i].ResetSuccess();
+            K[i].ResetSuccess();
+            L[i].ResetSuccess();
+        }
+    }
+
+    //Overrides--------------
+    public override void SolvePuzzle()
+    {
+        Debug.Log("PuzzleSolved");
+        base.SolvePuzzle();
     }
 }

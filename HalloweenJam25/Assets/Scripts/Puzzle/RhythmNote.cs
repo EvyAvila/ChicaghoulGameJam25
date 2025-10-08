@@ -14,4 +14,12 @@ public class RhythmNote
     public bool Sustained;
     public bool Success;
 
+    public void PlaySuccess()
+    {
+        Success = true;
+    }
+    public void ResetSuccess()
+    {
+        Success = false;
+    }
 }
