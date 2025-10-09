@@ -61,6 +61,11 @@ public class RhythmRunner : InteractableObject
     /// </summary>
     private bool activated;
 
+    /// <summary>
+    /// Toggle if item can be interacted with
+    /// </summary>
+    private bool canBeUsed = true;
+     
     //Events
     public event Action OnSongStarted;
     public event Action OnBeatIncrement;
@@ -73,7 +78,11 @@ public class RhythmRunner : InteractableObject
         source = GetComponent<AudioSource>();
         source.clip = CountInClip;
 
+
         beatInterval = intervals.GetIntervalLength(BPM) * 2;
+        
+        //Subscriptions
+        intervals.IntervalEvent += IncrementBeat;
     }
 
     public void StartIntro()
@@ -123,6 +132,7 @@ public class RhythmRunner : InteractableObject
 
         InputTogglerEvents.EnablePlayerInputs();
         activated = false;
+        canBeUsed = false;
     }
     private void CountOnDivisions()
     {
@@ -174,9 +184,17 @@ public class RhythmRunner : InteractableObject
         }
     }
 
+    private void OnDisable()
+    {
+        intervals.IntervalEvent -= IncrementBeat;
+    }
+
     //Overrides
     public override void Interact()
     {
+        if (!canBeUsed)
+            return;
+
         if (activated)
             return;
 

@@ -8,8 +8,10 @@ public class RhythmValidation : PuzzleCondition
     private int notesPlayedCorrectly;
     public override bool isCorrect()
     {
-        float percentCorrect = (float)notesPlayedCorrectly / (float)totalNotes;
-        return percentCorrect > 0.8f;
+        //float percentCorrect = (float)notesPlayedCorrectly / (float)totalNotes;
+        //return percentCorrect > 0.8f;
+
+        return notesPlayedCorrectly > 50;
     }
 
     public void SetTotalNotes(int totalNotes)

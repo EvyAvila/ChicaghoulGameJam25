@@ -41,7 +41,7 @@ public class RawInputReader : MonoBehaviour
     {
         if (_inputs != null)
         {
-            _inputs.GroundMap.Directions.Enable();
+            _inputs.Enable();
         }
     }
 
@@ -49,7 +49,7 @@ public class RawInputReader : MonoBehaviour
     {
         if (_inputs != null)
         {
-            _inputs.GroundMap.Directions.Disable();
+            _inputs.Disable();
         }
     }
 
