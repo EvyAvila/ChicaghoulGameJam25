@@ -149,7 +149,7 @@ public class MappedNotes : PuzzleBase
         rhythmInputs.RhythmMap.K.canceled += OnNoteLetGo;
         rhythmInputs.RhythmMap.L.started += OnNoteDetected;
         rhythmInputs.RhythmMap.L.canceled += OnNoteLetGo;
-        rhythmInputs.RhythmMap.Leave.started += OnLeave;
+        //rhythmInputs.RhythmMap.Leave.started += OnLeave;
 
     }
     private void OnNoteDetected(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -174,7 +174,6 @@ public class MappedNotes : PuzzleBase
     {
         if (!acceptInput)
             return;
-
     }
 
     private void OnDisable()
@@ -194,7 +193,7 @@ public class MappedNotes : PuzzleBase
         rhythmInputs.RhythmMap.K.canceled -= OnNoteLetGo;
         rhythmInputs.RhythmMap.L.started -= OnNoteDetected;
         rhythmInputs.RhythmMap.L.canceled -= OnNoteLetGo;
-        rhythmInputs.RhythmMap.Leave.started -= OnLeave;
+        //rhythmInputs.RhythmMap.Leave.started -= OnLeave;
 
         rhythmRunner.OnBeatIncrement -= OnBeatIncrement;
         rhythmRunner.OnSongFinished -= OnRhythmFinished;
@@ -331,10 +330,6 @@ public class MappedNotes : PuzzleBase
         if (noteIndex >= A.Length - 1)
             acceptInput = false;
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        acceptInput = true;
-    }
     private void OnSongStart()
     {
         acceptInput = true;
@@ -342,6 +337,7 @@ public class MappedNotes : PuzzleBase
     private void OnRhythmFinished()
     {
         condition.UpdatePlayedNotes(goodCount);
+        acceptInput = false;
 
         if (solveCondition(condition))
         {
@@ -368,6 +364,14 @@ public class MappedNotes : PuzzleBase
             K[i].ResetSuccess();
             L[i].ResetSuccess();
         }
+
+        ANote.Reset();
+        SNote.Reset();
+        DNote.Reset();
+        SpaceNote.Reset();
+        JNote.Reset();  
+        KNote.Reset();
+        LNote.Reset();
     }
 
     //Overrides--------------

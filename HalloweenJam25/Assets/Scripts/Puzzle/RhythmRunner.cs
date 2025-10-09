@@ -2,7 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Cinemachine;
 using UnityEngine;
+
+//References
+//RHythm Help From reference b3agz - https://youtu.be/gIjajeyjRfE?si=Eke4NzpUOlaCn9tu
+//Rhythm Help - https://rhythmquestgame.com/devlog/04.html
 
 [RequireComponent(typeof(AudioSource))]
 public class RhythmRunner : InteractableObject
@@ -15,6 +20,11 @@ public class RhythmRunner : InteractableObject
     private double songPos;
     private float beatInterval;
 
+    /// <summary>
+    /// The represented notes to move
+    /// </summary>
+    [SerializeField] private VisibleNotes notes;
+
     [SerializeField] private AudioClip CountInClip;
     [SerializeField] private AudioClip Song;
 
@@ -23,6 +33,10 @@ public class RhythmRunner : InteractableObject
     /// </summary>
     [SerializeField] private NoteDivision intervals;
 
+    /// <summary>
+    /// POV Camera
+    /// </summary>
+    [SerializeField] private CinemachineVirtualCamera organCamera;
 
     /// <summary>
     /// Toggle to count beats
@@ -34,6 +48,7 @@ public class RhythmRunner : InteractableObject
     /// </summary>
     private double dspBeat;
     private double currentBeat;
+    private double totalAudioLength;
     private float totalBeats;
 
     /// <summary>
@@ -41,6 +56,10 @@ public class RhythmRunner : InteractableObject
     /// </summary>
     private AudioSource source;
 
+    /// <summary>
+    /// If the puzzle has been activated or not
+    /// </summary>
+    private bool activated;
 
     //Events
     public event Action OnSongStarted;
@@ -65,15 +84,27 @@ public class RhythmRunner : InteractableObject
         //source.clip = Song;
         //source.PlayDelayed(CountInClip.length);
 
+        totalAudioLength = CountInClip.length + Song.length;
+        if (notes != null)
+        {
+            notes.ResetNotes();
+            notes.SetSongLength(totalBeats);
+        }
+
         StartCoroutine(IntroSequence());
     }
 
     private IEnumerator IntroSequence()
     {
+        float delay = CountInClip.length - 0.0f;
         source.clip = Song;
         source.PlayOneShot(CountInClip);
-        source.PlayDelayed(CountInClip.length);
-        yield return new WaitForSeconds(CountInClip.length);
+        source.PlayDelayed(delay);
+        
+        if (notes != null)
+            notes.MoveNotes();
+        
+        yield return new WaitForSeconds(delay);
         OnSongStarted?.Invoke();
         countBeats = true;
         dspTime = AudioSettings.dspTime;
@@ -83,6 +114,15 @@ public class RhythmRunner : InteractableObject
     {
         countBeats = false;
         OnSongFinished?.Invoke();
+
+        if (organCamera != null)
+            organCamera.Priority = 0;
+
+        if (notes != null)
+            notes.ResetNotes();
+
+        InputTogglerEvents.EnablePlayerInputs();
+        activated = false;
     }
     private void CountOnDivisions()
     {
@@ -137,7 +177,15 @@ public class RhythmRunner : InteractableObject
     //Overrides
     public override void Interact()
     {
-        if (!countBeats)
-            StartIntro();
+        if (activated)
+            return;
+
+        activated = true;
+        StartIntro();
+
+        if (organCamera != null)
+            organCamera.Priority = 10;
+
+        InputTogglerEvents.DisablePlayerInputs();
     }
 }

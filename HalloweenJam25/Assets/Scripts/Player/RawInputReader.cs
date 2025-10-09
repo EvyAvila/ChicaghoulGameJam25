@@ -32,7 +32,25 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.SecondaryInteract.performed += OnSecondaryInteractPerformed;
         _inputs.GroundMap.Interact.canceled += OnInteractStopped;
 
-        //_rhythmInputsAction = I
+        //Static subscriptions
+        InputTogglerEvents.OnDisablePlayerInputs += OnHardDisable;
+        InputTogglerEvents.OnReEnablePlayerInputs += OnHardReEnable;
+    }
+
+    private void OnHardReEnable()
+    {
+        if (_inputs != null)
+        {
+            _inputs.GroundMap.Directions.Enable();
+        }
+    }
+
+    private void OnHardDisable()
+    {
+        if (_inputs != null)
+        {
+            _inputs.GroundMap.Directions.Disable();
+        }
     }
 
     private void OnSecondaryInteractPerformed(InputAction.CallbackContext obj)
@@ -72,5 +90,9 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.Interact.performed -= OnInteractPerformed;
         _inputs.GroundMap.SecondaryInteract.performed -= OnSecondaryInteractPerformed;
         _inputs.GroundMap.Interact.canceled -= OnInteractStopped;
+
+        //Static subscriptions
+        InputTogglerEvents.OnDisablePlayerInputs -= OnHardDisable;
+        InputTogglerEvents.OnReEnablePlayerInputs -= OnHardReEnable;
     }
 }
