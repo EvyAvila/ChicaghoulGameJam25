@@ -5,4 +5,11 @@
         <ui:ProgressBar value="2.5" title="my-progress" high-value="4" name="BottleContainer" low-value="0" class="RotatedObj" style="align-self: center; justify-content: center; align-items: stretch; width: 318px; height: 65px; margin-top: 15px; margin-bottom: 15px; margin-right: 10px; margin-left: 10px;" />
         <ui:ProgressBar value="1" title="my-progress" high-value="4" name="BottleContainer" low-value="0" class="RotatedObj" style="align-self: center; justify-content: center; align-items: stretch; width: 318px; height: 65px; margin-top: 15px; margin-bottom: 15px; margin-right: 10px; margin-left: 10px;" />
     </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 0; flex-shrink: 0; height: 102px;">
+        <ui:VisualElement name="ClockRoot" class="clockRoot" style="flex-grow: 1;">
+            <ui:VisualElement name="HalfCircle" class="halfCircle" style="flex-grow: 1;">
+                <ui:VisualElement name="RotatingImage" class="rotatingImage" style="flex-grow: 1;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

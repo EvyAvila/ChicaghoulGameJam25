@@ -8,21 +8,29 @@ public class GameMenu : BaseMenu
 {
     private List<ProgressBar> bottles = new List<ProgressBar>();
     private int currentBottlePos = 0;
-    [SerializeField] private float maxValue;
+    [SerializeField] private float maxValue, speed;
 
-    //[SerializeField] private float setMaxValue;
+    private VisualElement rotatingImage;
+    private float currentAngle = -180f;
 
-    //public static event Action<int> OnValueChanged;
+    //[SerializeField] private ClockTimer clock;
 
     protected override void Awake()
     {
         scriptName = SceneScript.GameMenu;
+        speed = speed == 0 || speed < 5 ? 6 : speed;
+    }
+
+    private void Update()
+    {
+        RotateClock();
     }
 
     protected override void SetProperties()
     {
         bottles = root.Query<ProgressBar>(className: "RotatedObj").ToList();
-
+        rotatingImage = root.Q<VisualElement>("RotatingImage");
+        
         maxValue = maxValue == 0 ? 4 : maxValue;
 
         foreach (var b in bottles)
@@ -67,5 +75,11 @@ public class GameMenu : BaseMenu
             }
         }
        
+    }
+
+    private void RotateClock()
+    {
+        currentAngle += speed * Time.deltaTime; // accumulate
+        rotatingImage.style.rotate = new Rotate(new Angle(currentAngle, AngleUnit.Degree));
     }
 }

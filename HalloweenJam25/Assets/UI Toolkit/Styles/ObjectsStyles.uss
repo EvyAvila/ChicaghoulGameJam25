@@ -43,3 +43,28 @@
     flex-grow: 0;
     flex-basis: auto;
 }
+
+.clockRoot {
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.halfCircle {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+    background-color: rgb(51, 51, 51);
+}
+
+.rotatingImage {
+    background-image: url('project://database/Assets/Art/UI/SunAndMoon.jpg?fileID=2800000&guid=89ba36fa5dc24df41a78a9627cc8bd98&type=3#SunAndMoon');
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-width: 202px;
+    rotate: -180deg;
+}
