@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 using System.Linq;
 using UnityEngine.Device;
 
-public enum SceneScript { MainMenu, QuitMenu, GameMenu, None }
+public enum SceneScript { MainMenu, QuitMenu, GameMenu}
 
 public class UIManager : MonoBehaviour
 {
