@@ -31,19 +31,31 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.Interact.performed += OnInteractPerformed;
         _inputs.GroundMap.SecondaryInteract.performed += OnSecondaryInteractPerformed;
         _inputs.GroundMap.Interact.canceled += OnInteractStopped;
-        _inputs.GroundMap.ToggleRotate.started+= OnToggleRotate;
 
-        //_rhythmInputsAction = I
+        //Static subscriptions
+        InputTogglerEvents.OnDisablePlayerInputs += OnHardDisable;
+        InputTogglerEvents.OnReEnablePlayerInputs += OnHardReEnable;
+    }
+
+    private void OnHardReEnable()
+    {
+        if (_inputs != null)
+        {
+            _inputs.Enable();
+        }
+    }
+
+    private void OnHardDisable()
+    {
+        if (_inputs != null)
+        {
+            _inputs.Disable();
+        }
     }
 
     private void OnSecondaryInteractPerformed(InputAction.CallbackContext obj)
     {
         OnInteractSecondary?.Invoke();
-    }
-
-    private void OnToggleRotate(InputAction.CallbackContext obj)
-    {
-        OnRotate?.Invoke();
     }
 
     private void OnInteractStopped(InputAction.CallbackContext obj)
@@ -78,6 +90,9 @@ public class RawInputReader : MonoBehaviour
         _inputs.GroundMap.Interact.performed -= OnInteractPerformed;
         _inputs.GroundMap.SecondaryInteract.performed -= OnSecondaryInteractPerformed;
         _inputs.GroundMap.Interact.canceled -= OnInteractStopped;
-        _inputs.GroundMap.ToggleRotate.performed -= OnToggleRotate;
+
+        //Static subscriptions
+        InputTogglerEvents.OnDisablePlayerInputs -= OnHardDisable;
+        InputTogglerEvents.OnReEnablePlayerInputs -= OnHardReEnable;
     }
 }

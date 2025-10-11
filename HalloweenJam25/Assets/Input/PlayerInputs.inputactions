@@ -40,33 +40,6 @@
                     "processors": "",
                     "interactions": "Hold(duration=0.06,pressPoint=0.05)",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ToggleRotate",
-                    "type": "Button",
-                    "id": "dd627db2-30b6-484f-a8c3-46d240f38974",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Zoom",
-                    "type": "Button",
-                    "id": "feae1db4-aefb-481b-8281-24e9eb5b5cc6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "RhythmNotes",
-                    "type": "Button",
-                    "id": "ad6882b9-a3f0-48cc-be7f-3e2a95ab81ec",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -182,50 +155,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f1445e42-1502-4cf2-aecd-43ec32f7c842",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleRotate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "f59124bd-ab52-4aa8-9b35-4918e8e831e4",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "d31a4d2c-ad86-432a-a8de-c86113dd54a5",
-                    "path": "<Mouse>/scroll/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "dc088b33-2986-4b78-8a6f-4bef5932f53c",
-                    "path": "<Mouse>/scroll/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
                     "id": "26d3b0dc-54cb-4f21-bf37-d91efc954ea2",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -245,83 +174,6 @@
                     "action": "SecondaryInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7d310b83-3cde-4fcd-8363-ef11d303d3ea",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e56db07d-d08b-40b0-9ef1-1c5678e40b52",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a8425f64-360a-4a16-99a7-987c2a9dcdf3",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e5cac5f2-2176-4ece-9130-531a0340a055",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4900af45-071c-4e42-b877-ad0b7d079b1d",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "119f82f8-5d4b-451c-89ee-31e6276e81ee",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8aa26cfa-236d-4ff2-9283-c953012dfc1b",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -330,15 +182,6 @@
             "id": "9c4d59b5-1bc7-42f0-a841-7a50283fa1d3",
             "actions": [
                 {
-                    "name": "RhythmNotes",
-                    "type": "Button",
-                    "id": "a7c6c469-e89d-43ce-ac69-8e4dbc814be1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Leave",
                     "type": "Button",
                     "id": "51a0c27a-dc9c-4517-bd21-a6281a72a572",
@@ -346,86 +189,72 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "A",
+                    "type": "Button",
+                    "id": "690f20e7-79bd-4e8f-b125-db294defdd49",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "S",
+                    "type": "Button",
+                    "id": "ce3635d3-d740-4435-bc27-4e81cd55e7ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "D",
+                    "type": "Button",
+                    "id": "f321a8b1-f121-42b0-80fe-a8d22886f020",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SPACE",
+                    "type": "Button",
+                    "id": "47635573-60ea-4013-af4d-ff27b1a3021f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "J",
+                    "type": "Button",
+                    "id": "562e82e9-284a-4fce-b186-6c77595f9e4b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "K",
+                    "type": "Button",
+                    "id": "d9c176b2-88a3-436c-9a3c-f3c55c47859f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "L",
+                    "type": "Button",
+                    "id": "6b410008-630a-4595-bbfc-3d4def5f0b84",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "1a9e88f5-b3fb-4101-a7c3-47dc4f64e29a",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4307eb62-46e1-43b6-a69b-13666e76b399",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c15cffbc-9d27-490d-a0b1-17c5fd0f472c",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ab15296f-9796-4a22-8442-67e5a5416b8b",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ef42d7d5-c16d-463a-842b-5b671cfc1e11",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8e17ccae-b343-4e4a-9461-fb5d2e71a492",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a11047ca-5327-4b18-80b3-a762be36f296",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RhythmNotes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "f13f3259-e6b1-4bda-a727-3129363ac331",
@@ -434,6 +263,83 @@
                     "processors": "",
                     "groups": "",
                     "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1dc9e531-0cae-4d50-a54d-4a105ef57d98",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "A",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0dd41c9-4acd-419e-92eb-29866f44dd4a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "S",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a6d6929-3302-4460-b0de-9da22735b44f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "D",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11ae031e-4e61-467d-b75e-a2eb52345c1e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SPACE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af035ac4-e221-4efa-b44a-61b3244e216f",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "J",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03462826-2525-4b00-a133-ab57fa3d1c89",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "K",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2cefc3f-fb9a-4cc4-9025-80162fca1cf9",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -8,8 +8,10 @@ using UnityEngine.Events;
 public class NoteDivision 
 {
     [SerializeField] private float steps;
-    [SerializeField] private UnityEvent IntervalEvent;
     [SerializeField] private UnityEvent OnBeatReset;
+    
+    public event Action IntervalEvent;
+    
     private float lastInterval;
     public float GetIntervalLength(float bpm)
     {
@@ -28,7 +30,12 @@ public class NoteDivision
             if (lastInterval == 1)
                 OnBeatReset.Invoke();
 
-            IntervalEvent.Invoke();
+            IntervalEvent?.Invoke();
         }
+    }
+
+    public void ResetInterval()
+    {
+        lastInterval = 1;
     }
 }

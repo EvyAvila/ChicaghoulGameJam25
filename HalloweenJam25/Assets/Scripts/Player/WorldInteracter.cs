@@ -30,13 +30,16 @@ public class WorldInteracter : MonoBehaviour
             if (obj.TryGetComponent<InteractableObject>(out InteractableObject interactable))
             {
                 currentInteractingItem = interactable;
-                currentInteractingItem.Interact(holdPoint);
 
                 //If grabbable, subscribe to forget event
                 if (currentInteractingItem.TryGetComponent<GrabbableItem>(out GrabbableItem g))
                 {
+                    currentInteractingItem.Interact(holdPoint);
                     g.OnForgetItem += SoftStopInteract;
+                    return;
                 }
+
+                currentInteractingItem.Interact();
             }
         }
     }

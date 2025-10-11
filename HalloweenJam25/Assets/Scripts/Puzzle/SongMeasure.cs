@@ -11,11 +11,11 @@ public class SongMeasure
 
 public class Beat
 {
-    public RhythmNote? A;
-    public RhythmNote? S;
-    public RhythmNote? D;
-    public RhythmNote? SPACE;
-    public RhythmNote? J;
-    public RhythmNote? K;
-    public RhythmNote? L;
+    public RhythmNote A;
+    public RhythmNote S;
+    public RhythmNote D;
+    public RhythmNote SPACE;
+    public RhythmNote J;
+    public RhythmNote K;
+    public RhythmNote L;
 }
