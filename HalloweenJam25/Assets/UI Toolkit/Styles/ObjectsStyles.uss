@@ -1,0 +1,70 @@
+#BottleContainer Label {
+    display: none;
+}
+
+#BottleContainer .unity-progress-bar__background {
+    background-color: rgba(96, 96, 96, 0.52);
+    opacity: 1;
+    color: rgb(27, 27, 27);
+    background-image: none;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    height: auto;
+    flex-direction: column;
+    flex-grow: 0;
+    width: auto;
+    flex-basis: 263%;
+}
+
+#BottleContainer .unity-progress-bar__progress {
+    background-color: rgb(130, 29, 29);
+}
+
+#BottleContainer .unity-progress-bar__container {
+    height: 22px;
+    flex-shrink: 1;
+    align-self: auto;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-grow: 0;
+    width: 330px;
+    top: -15px;
+    left: -3px;
+}
+
+.RotatedObj {
+    rotate: -90deg;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-self: auto;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: auto;
+}
+
+.clockRoot {
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.halfCircle {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+    background-color: rgb(51, 51, 51);
+}
+
+.rotatingImage {
+    background-image: url('project://database/Assets/Art/UI/SunAndMoon.jpg?fileID=2800000&guid=89ba36fa5dc24df41a78a9627cc8bd98&type=3#SunAndMoon');
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-width: 202px;
+    rotate: -180deg;
+}

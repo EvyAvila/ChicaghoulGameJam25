@@ -1,0 +1,21 @@
+.titles {
+    align-self: center;
+    font-size: 125px;
+    color: rgb(0, 0, 0);
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.button {
+    width: 10%;
+    height: 10%;
+    align-self: center;
+    color: rgb(0, 0, 0);
+    font-size: 29px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-top-left-radius: 27px;
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 27px;
+    border-bottom-left-radius: 27px;
+}
