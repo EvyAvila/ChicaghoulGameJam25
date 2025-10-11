@@ -47,7 +47,7 @@ public class SessionTimer : MonoBehaviour
         {
             if (elapsedSeconds < totalSeconds)
             {
-                totalSeconds += Time.deltaTime;
+                elapsedSeconds += Time.deltaTime;
             }
             else
             {

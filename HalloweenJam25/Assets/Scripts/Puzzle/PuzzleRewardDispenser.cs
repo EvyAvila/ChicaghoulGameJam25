@@ -22,22 +22,14 @@ public class PuzzleRewardDispenser : MonoBehaviour
     [SerializeField] private float minBloodAmount;
     private float currentBloodAmount;
 
-
     /// <summary>
     /// Visual Blood jar 
     /// </summary>
     private BloodJarVisual bloodJar;
 
-
-    /// <summary>
-    /// The puzzle that this dispenser is connected to
-    /// </summary>
-    private PuzzleBase trackedPuzzle;
-
     private void Start()
     {
         elapsedSeconds = 0.0f;
-        trackedPuzzle = GetComponent<PuzzleBase>();
         currentBloodAmount = maxBloodAmount;
 
         //Visual blood
@@ -56,6 +48,13 @@ public class PuzzleRewardDispenser : MonoBehaviour
     {
         countTimer = true;
     }
+
+    public float RetrieveReward()
+    {
+        countTimer = false;
+        return currentBloodAmount;
+    }
+
     private void Update()
     {
         if (countTimer)

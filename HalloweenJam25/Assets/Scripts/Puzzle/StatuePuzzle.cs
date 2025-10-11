@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorPuzzle : PuzzleBase
+public class StatuePuzzle : PuzzleBase
 {
     /// <summary>
     /// List of used interactables

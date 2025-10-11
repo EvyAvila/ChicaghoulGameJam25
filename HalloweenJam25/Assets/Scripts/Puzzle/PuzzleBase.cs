@@ -9,6 +9,8 @@ using UnityEngine.Events;
 /// </summary>
 public abstract class PuzzleBase : MonoBehaviour
 {
+    protected bool puzzleLocked;
+
     /// <summary>
     /// Condition to solve puzzle
     /// </summary>
