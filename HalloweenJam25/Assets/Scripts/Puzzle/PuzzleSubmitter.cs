@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleSubmitter : InteractableObject
 {
     /// <summary>
-    /// Attachted Puzzle 
+    /// Attacthed Puzzle to update reward claim
     /// </summary>
     [SerializeField] private PuzzleBase trackedPuzzle;
 
@@ -15,11 +17,26 @@ public class PuzzleSubmitter : InteractableObject
     /// </summary>
     private PuzzleRewardDispenser rewardDispenser;
 
+    /// <summary>
+    /// Fired event when submission is correct
+    /// </summary>
+    public UnityEvent OnSuccessfullSubmit;
+
+    //Events
+    public static event Action OnSubmitAttemptFail;
+    public static event Action OnSubmitFullFailure;
+
+    /// <summary>
+    /// The number of times this puzzle was failed
+    /// </summary>
+    private int failCount;
+
     private bool allowDispense;
     private bool dispenseLocked;
 
     protected override void Start()
     {
+        failCount = 0;
         rewardDispenser = GetComponent<PuzzleRewardDispenser>();
 
         if (trackedPuzzle != null)
@@ -41,6 +58,18 @@ public class PuzzleSubmitter : InteractableObject
         allowDispense = true;
     }
 
+    private void FailSubmit()
+    {
+        failCount++;
+
+        OnSubmitAttemptFail?.Invoke();
+
+        if (failCount > 2)
+        {
+            OnSubmitFullFailure?.Invoke();
+        }
+    }
+
     //Overrides
     public override void Interact()
     {
@@ -52,9 +81,14 @@ public class PuzzleSubmitter : InteractableObject
 
         //FAIL situation
         if (!allowDispense)
+        {
+            FailSubmit();
             return;
+        }
 
-        rewardDispenser.RetrieveReward();
+        BloodTracker.AddToBloodLevel(rewardDispenser.RetrieveReward());
         dispenseLocked = true;
+
+        OnSuccessfullSubmit?.Invoke();
     }
 }

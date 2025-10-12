@@ -1,0 +1,80 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+/// <summary>
+/// [FAILURE - Loss by Sun Timer]
+/// [BAD - Very low blood count ]
+/// [NORMAL - More than 1/3 blood filled]
+/// [SUPER - More than 2/3 blood filled]
+/// </summary>
+public enum EndingType { FAILURE, BAD, NORMAL, SUPER}
+public enum FailureType { SUN, SOULS}
+
+/// <summary>
+/// Sets the proper game ending parameters based off of player data
+/// </summary>
+public class GameEndingManager : MonoBehaviour
+{
+    public static GameEndingManager Instance { get; private set; }
+    public static EndingType ending { get; private set; }
+    public static FailureType failType { get; private set; }
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        SessionTimer.OnTimerFinished += DeclareFailureTimer;
+        PuzzleSubmitter.OnSubmitFullFailure += DeclareFailureSouls;
+        EscapeObject.OnPlayerEscaped += DeclareStandardEndingType;
+    }
+
+    private void OnDisable()
+    {
+        SessionTimer.OnTimerFinished -= DeclareFailureTimer;
+        PuzzleSubmitter.OnSubmitFullFailure -= DeclareFailureSouls;
+        EscapeObject.OnPlayerEscaped -= DeclareStandardEndingType;
+    }
+    public static void DeclareStandardEndingType()
+    {
+        if (BloodTracker.Instance == null)
+            return;
+
+        float blood = BloodTracker.GetBloodLevel();
+            
+        if (blood < 3)
+        {
+            ending = EndingType.BAD;
+        }
+        else if (blood >= 3 && blood <=6)
+        {
+            ending = EndingType.NORMAL;
+        }
+        else if (blood > 6)
+        {
+            ending = EndingType.SUPER;
+        }
+    }
+
+    public static void DeclareFailureTimer()
+    {
+        ending = EndingType.FAILURE;
+        failType = FailureType.SUN;
+    }
+
+    public static void DeclareFailureSouls()
+    {
+        ending = EndingType.FAILURE;
+        failType = FailureType.SOULS;
+    }
+}
