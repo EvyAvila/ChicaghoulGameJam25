@@ -29,7 +29,7 @@ public class MainMenu : BaseMenu
 
     private void StartGame(ClickEvent evt)
     {
-        //UIManager.Instance.LoadNextMenu(SceneScript.GameMenu);
+        FadeTransitions.Instance.SwitchScenes("Gameplay", SceneScript.GameMenu);
         Debug.Log("Starts game");
     }
 

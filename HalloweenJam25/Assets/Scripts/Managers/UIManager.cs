@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private SceneScript startingUIScript;
 
+    [SerializeField] private PauseMenu pause;
+    [SerializeField] private EndingMenu ending;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,6 +41,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        pause.gameObject.SetActive(false);
+        ending.gameObject.SetActive(false);
         LoadNextMenu(startingUIScript);
     }
 
@@ -62,6 +67,15 @@ public class UIManager : MonoBehaviour
         SwitchUIMenu(menus[index].MenuAsset, menus[index].MenuScript);
     }
 
+    public void DisplayPauseMenu(bool condition)
+    {
+        pause.gameObject.SetActive(condition);
+    }
+
+    public void DisplayEndingMenu(bool condition)
+    {
+        ending.gameObject.SetActive(condition);
+    }
 }
 
 [System.Serializable]

@@ -6,13 +6,14 @@ using UnityEngine;
 public class TestPause : InteractableObject
 {
     //public static event Action OnPauseTest;
-    public PauseMenu menu;
+    //public PauseMenu menu;
     private bool isActive;
 
     protected override void Start()
     {
         isActive = false;
-        menu.gameObject.SetActive(false);
+        //menu.gameObject.SetActive(false);
+        UIManager.Instance.DisplayPauseMenu(isActive);
     }
 
     public override void Interact()
@@ -21,7 +22,7 @@ public class TestPause : InteractableObject
 
         if(isActive)
         {
-            menu.gameObject.SetActive(true);
+            UIManager.Instance.DisplayPauseMenu(isActive);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -29,7 +30,7 @@ public class TestPause : InteractableObject
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            menu.gameObject.SetActive(false);
+            UIManager.Instance.DisplayPauseMenu(isActive);
         }    
         //UIManager.Instance.LoadNextMenu(SceneScript.PauseMenu);
         //OnPauseTest?.Invoke();
