@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class BloodTracker : MonoBehaviour
 {
@@ -31,5 +32,16 @@ public class BloodTracker : MonoBehaviour
     public static float GetBloodLevel()
     {
         return bloodLevel;
+    }
+
+    public static void TakeDamage()
+    {
+        //Take 10 percent damage
+        float damage = bloodLevel * 0.1f;
+        
+        bloodLevel -= damage;
+
+        if (bloodLevel < 0)
+            bloodLevel = 0;
     }
 }
