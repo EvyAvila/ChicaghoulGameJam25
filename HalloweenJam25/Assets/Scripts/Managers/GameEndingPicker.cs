@@ -15,9 +15,9 @@ public enum FailureType { SUN, SOULS}
 /// <summary>
 /// Sets the proper game ending parameters based off of player data
 /// </summary>
-public class GameEndingManager : MonoBehaviour
+public class GameEndingPicker : MonoBehaviour
 {
-    public static GameEndingManager Instance { get; private set; }
+    public static GameEndingPicker Instance { get; private set; }
     public static EndingType ending { get; private set; }
     public static FailureType failType { get; private set; }
 
@@ -34,16 +34,16 @@ public class GameEndingManager : MonoBehaviour
 
     private void Start()
     {
-        SessionTimer.OnTimerFinished += DeclareFailureTimer;
-        PuzzleSubmitter.OnSubmitFullFailure += DeclareFailureSouls;
-        EscapeObject.OnPlayerEscaped += DeclareStandardEndingType;
+        GameCurator.OnLoseGameSouls += DeclareFailureSouls;
+        GameCurator.OnLoseGameSun += DeclareFailureTimer;
+        GameCurator.OnCastleDoorReached += DeclareStandardEndingType;
     }
 
     private void OnDisable()
     {
-        SessionTimer.OnTimerFinished -= DeclareFailureTimer;
-        PuzzleSubmitter.OnSubmitFullFailure -= DeclareFailureSouls;
-        EscapeObject.OnPlayerEscaped -= DeclareStandardEndingType;
+        GameCurator.OnLoseGameSouls -= DeclareFailureSouls;
+        GameCurator.OnLoseGameSun -= DeclareFailureTimer;
+        GameCurator.OnCastleDoorReached -= DeclareStandardEndingType;
     }
     public static void DeclareStandardEndingType()
     {
@@ -54,26 +54,31 @@ public class GameEndingManager : MonoBehaviour
             
         if (blood < 3)
         {
+            Debug.Log("BAD Ending, low blood");
             ending = EndingType.BAD;
         }
         else if (blood >= 3 && blood <=6)
         {
+            Debug.Log("Normal ending, regular blood");
             ending = EndingType.NORMAL;
         }
         else if (blood > 6)
         {
+            Debug.Log("SUPER ending");
             ending = EndingType.SUPER;
         }
     }
 
     public static void DeclareFailureTimer()
     {
+        Debug.Log("Failure Timer");
         ending = EndingType.FAILURE;
         failType = FailureType.SUN;
     }
 
     public static void DeclareFailureSouls()
     {
+        Debug.Log("Failure SOULS");
         ending = EndingType.FAILURE;
         failType = FailureType.SOULS;
     }

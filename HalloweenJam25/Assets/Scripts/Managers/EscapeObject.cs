@@ -5,27 +5,36 @@ using UnityEngine;
 
 public class EscapeObject : InteractableObject
 {
-    public static event Action OnPlayerEscaped;
+    public static event Action<bool> OnPlayerEscaped;
 
     /// <summary>
     /// Whether to call event when OnCollision
     /// </summary>
-    private bool Collider;
-    
+    [SerializeField] private bool usingCollider;
+    private bool activated;
+
     //Overrides---------------------
     public override void Interact()
     {
-        if (Collider)
+        if (usingCollider)
+            return;
+        
+        if (activated)
             return;
 
-        OnPlayerEscaped?.Invoke();
+        activated = true;
+        OnPlayerEscaped?.Invoke(usingCollider);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!Collider)
+        if (!usingCollider)
             return;
 
-        OnPlayerEscaped?.Invoke();
+        if (activated)
+            return;
+
+        activated = true;
+        OnPlayerEscaped?.Invoke(usingCollider);
     }
 }
