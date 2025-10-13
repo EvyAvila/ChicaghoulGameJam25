@@ -128,8 +128,8 @@ public class FlyingPlayer : MonoBehaviour
 
         //Leaning and rotations for camera feel
         AimPlayerTowardsTarget();
-        //HorizontalInputLean();
-        //VerticalInputLean();
+        HorizontalInputLean();
+        VerticalInputLean();
     }
 
     /// <summary>
