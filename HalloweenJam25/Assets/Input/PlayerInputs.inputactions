@@ -372,6 +372,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "FlyingMap",
+            "id": "31ffc13b-254d-48cc-a65b-3e31b6bcd640",
+            "actions": [
+                {
+                    "name": "MouseMovement",
+                    "type": "PassThrough",
+                    "id": "bb08eec9-c530-462a-b891-efcca24bbc17",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b74b9671-ee4f-4cc2-8821-ee7076abca14",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
