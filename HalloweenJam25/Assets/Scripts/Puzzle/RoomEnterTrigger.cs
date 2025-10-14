@@ -9,7 +9,6 @@ public class RoomEnterTrigger : MonoBehaviour
     /// <summary>
     /// Event that will start subscribed PuzzleTimer
     /// </summary>
-    [HideInInspector]
     public UnityEvent triggeredEvent;
  
     public bool triggerActivated = false;

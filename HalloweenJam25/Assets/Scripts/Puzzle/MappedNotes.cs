@@ -244,21 +244,20 @@ public class MappedNotes : PuzzleBase
 
         if (arr[noteIndex].Key == NoteKey.NONE)
         {
-            Debug.Log("No key this time");
+            //Debug.Log("No key this time");
             return;
         }
 
         double diff = rhythmRunner.GetCurrentDspBeat() - rhythmRunner.GetCurrentBeat();
-        Debug.Log(diff);
         if (diff < marginOfError)
         {
-            Debug.Log("In Time");
+            //Debug.Log("In Time");
             arr[noteIndex].PlaySuccess();
             goodCount++;
         }
         else
         {
-            Debug.Log("Bad Time");
+            //Debug.Log("Bad Time");
             arr[noteIndex].ResetSuccess();
         }            
     }
@@ -285,11 +284,11 @@ public class MappedNotes : PuzzleBase
                 {
                     if (!arr[noteIndex-1].Success)
                     {
-                        Debug.Log("Cant continue sustain");
+                        //Debug.Log("Cant continue sustain");
                         return;
                     }
 
-                    Debug.Log("Continued sustain");
+                    //Debug.Log("Continued sustain");
                     arr[noteIndex].PlaySuccess();
                     goodCount++;
                     return;
@@ -298,11 +297,11 @@ public class MappedNotes : PuzzleBase
 
             if (note.PreviouslyHeld)
             {
-                Debug.Log("Wrong sustain");
+                //Debug.Log("Wrong sustain");
                 return;
             }
 
-            Debug.Log("Final - Continued sustain");
+            //Debug.Log("Final - Continued sustain");
             arr[noteIndex].PlaySuccess();
             goodCount++;
             return;

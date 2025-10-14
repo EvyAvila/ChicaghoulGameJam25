@@ -10,7 +10,7 @@ public class PuzzleSubmitter : InteractableObject
     /// <summary>
     /// Attacthed Puzzle to update reward claim
     /// </summary>
-    [SerializeField] private PuzzleBase trackedPuzzle;
+    public PuzzleBase trackedPuzzle;
 
     /// <summary>
     /// Attacthed timer and dispenser
@@ -68,6 +68,10 @@ public class PuzzleSubmitter : InteractableObject
         {
             OnSubmitFullFailure?.Invoke();
         }
+    }
+    public void SetTrackedPuzzle(PuzzleBase instance)
+    {
+        trackedPuzzle = instance;
     }
 
     //Overrides
