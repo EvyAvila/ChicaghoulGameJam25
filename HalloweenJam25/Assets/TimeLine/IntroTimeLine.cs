@@ -24,5 +24,6 @@ public class IntroTimeLine : MonoBehaviour
     {
         Debug.Log("Intro Finished");
         OnIntroFinish?.Invoke();
+        gameObject.SetActive(false);
     }
 }

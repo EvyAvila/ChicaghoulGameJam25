@@ -10,6 +10,8 @@ public class PotionCondition : PuzzleCondition
 
     [SerializeField] private List<PotionColor> requiredColors;
 
+    [SerializeField] private PotionReqUI potionUi;
+
     private int potionSize;
 
     private void Start()
@@ -53,7 +55,9 @@ public class PotionCondition : PuzzleCondition
         }
 
 
-        PotionReqUI.instance.SetIcons(i, c);
+        //PotionReqUI.instance.SetIcons(i, c);
+        if (potionUi != null)
+            potionUi.SetIcons(i, c);
     }
 
     public override bool isCorrect()

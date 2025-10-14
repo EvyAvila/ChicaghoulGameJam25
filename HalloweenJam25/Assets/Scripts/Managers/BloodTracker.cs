@@ -28,6 +28,7 @@ public class BloodTracker : MonoBehaviour
     public static void AddToBloodLevel(float level)
     {
         bloodLevel += level;
+        Debug.Log($"Add blood - Curr {bloodLevel}");
     }
     public static float GetBloodLevel()
     {
@@ -40,6 +41,9 @@ public class BloodTracker : MonoBehaviour
         float damage = bloodLevel * 0.1f;
         
         bloodLevel -= damage;
+
+        Debug.Log($"Lost blood - Curr {bloodLevel}");
+
 
         if (bloodLevel < 0)
             bloodLevel = 0;

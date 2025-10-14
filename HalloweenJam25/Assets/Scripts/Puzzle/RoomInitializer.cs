@@ -17,6 +17,8 @@ public class RoomInitializer : MonoBehaviour
         {
             GameObject g = Instantiate(puzzleObject, puzzlePoint);
             puzzleInstance = g.GetComponent<PuzzleBase>();
+            submitter.SetTrackedPuzzle(puzzleInstance);
+
             return;
         }
 
@@ -28,11 +30,7 @@ public class RoomInitializer : MonoBehaviour
             Debug.Log($"Instantiating {puzzleObject.name}");
             GameObject g = Instantiate(puzzleObject, puzzlePoint);
             puzzleInstance = g.GetComponent<PuzzleBase>();
-        
-            if (submitter != null)
-            {
-                submitter.SetTrackedPuzzle(puzzleInstance);
-            }
+            submitter.SetTrackedPuzzle(puzzleInstance);
         }
         else
         {

@@ -68,6 +68,9 @@ public class PlayerInputHub : MonoBehaviour
 
     private void OnDisable()
     {
+        if (inputReader == null)
+            return;
+
         inputReader.OnDirectionPerfomed -= OnMovementPerformed;
         inputReader.OnDirectionStopped -= OnMovementStopped;
         inputReader.OnInteractStop -= OnInteractStopped;

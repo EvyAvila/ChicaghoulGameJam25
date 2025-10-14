@@ -5,23 +5,23 @@ using UnityEngine.UI;
 
 public class PotionReqUI : MonoBehaviour
 {
-    public static PotionReqUI instance;
+    //public static PotionReqUI instance;
 
     [SerializeField] private List<Image> icons;
 
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(this);
-            return;
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    //private void Awake()
+    //{
+    //    if (instance != null && instance != this)
+    //    {
+    //        Destroy(this);
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //}
 
     public void SetIcons(int pos, Color c)
     {
