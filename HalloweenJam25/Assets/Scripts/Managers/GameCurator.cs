@@ -14,6 +14,7 @@ public class GameCurator : MonoBehaviour
     public static event Action OnCastleDoorReached;
     public static event Action OnLoseGameSun;
     public static event Action OnLoseGameSouls;
+    public static event Action OnDecideEnding;
 
     private void Awake()
     {
@@ -63,6 +64,8 @@ public class GameCurator : MonoBehaviour
             Debug.Log("Escaped via window");
             OnWindowEscape?.Invoke();
         }
+
+        OnDecideEnding?.Invoke();
     }
 
     private void OnFinalSection()

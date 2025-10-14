@@ -17,6 +17,10 @@ public class RoomInitializer : MonoBehaviour
         {
             GameObject g = Instantiate(puzzleObject, puzzlePoint);
             puzzleInstance = g.GetComponent<PuzzleBase>();
+
+            if (puzzleInstance == null)
+                puzzleInstance = g.GetComponentInChildren<PuzzleBase>();
+
             submitter.SetTrackedPuzzle(puzzleInstance);
 
             return;

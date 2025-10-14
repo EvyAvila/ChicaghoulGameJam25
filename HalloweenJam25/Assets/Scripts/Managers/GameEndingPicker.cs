@@ -36,14 +36,14 @@ public class GameEndingPicker : MonoBehaviour
     {
         GameCurator.OnLoseGameSouls += DeclareFailureSouls;
         GameCurator.OnLoseGameSun += DeclareFailureTimer;
-        GameCurator.OnCastleDoorReached += DeclareStandardEndingType;
+        GameCurator.OnDecideEnding += DeclareStandardEndingType;
     }
 
     private void OnDisable()
     {
         GameCurator.OnLoseGameSouls -= DeclareFailureSouls;
         GameCurator.OnLoseGameSun -= DeclareFailureTimer;
-        GameCurator.OnCastleDoorReached -= DeclareStandardEndingType;
+        GameCurator.OnDecideEnding -= DeclareStandardEndingType;
     }
     public static void DeclareStandardEndingType()
     {
