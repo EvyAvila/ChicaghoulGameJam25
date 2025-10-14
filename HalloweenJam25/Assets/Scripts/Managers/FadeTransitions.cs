@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 public class FadeTransitions : MonoBehaviour
 {
@@ -37,12 +38,12 @@ public class FadeTransitions : MonoBehaviour
         }
     }
 
-    private void FadeIn(float duration)
+    public void FadeIn(float duration)
     {
         fadeImage.DOFade(1, duration).SetUpdate(true);
     }
 
-    private void FadeOut(float duration)
+    public void FadeOut(float duration)
     {
         fadeImage.DOFade(0, duration).SetUpdate(true).OnComplete(() => CheckTime());
     }
