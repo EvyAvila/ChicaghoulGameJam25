@@ -12,6 +12,7 @@ public class GameMenu : BaseMenu
 
     private VisualElement rotatingImage;
     private float currentAngle = -180f;
+    private bool isActive;
 
     //[SerializeField] private ClockTimer clock;
 
@@ -23,7 +24,11 @@ public class GameMenu : BaseMenu
 
     private void Update()
     {
-        RotateClock();
+        if (isActive)
+        {
+            RotateClock();
+        }
+        
     }
 
     protected override void SetProperties()
@@ -41,11 +46,14 @@ public class GameMenu : BaseMenu
         
 
         BloodToggle.OnCollectBlood += OnBottleClicked;
+
+        isActive = true;
     }
 
     protected override void UnSetProperties()
     {
         BloodToggle.OnCollectBlood -= OnBottleClicked;
+        isActive = false;
     }
 
     private void OnBottleClicked(float amount)

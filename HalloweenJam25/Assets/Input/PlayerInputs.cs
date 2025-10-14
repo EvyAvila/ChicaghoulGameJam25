@@ -368,14 +368,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""FlyingMap"",
-            ""id"": ""15935a79-1c6b-402a-95c1-a2522ed952c2"",
+            ""name"": ""PauseMap"",
+            ""id"": ""64b0fcb2-5754-4470-b2d8-9333ea17a567"",
             ""actions"": [
                 {
-                    ""name"": ""MouseMovement"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""10954af1-1d7a-4a31-9006-ac109b2ceac5"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""29a9ac32-cf79-4390-88dd-5c6e4729b70e"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -384,12 +384,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""3dbf1dd9-2b83-418f-97df-cec34eb8d79c"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""id"": ""84dc42f6-9784-4803-b491-d1b7861201a7"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MouseMovement"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -414,9 +414,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_RhythmMap_J = m_RhythmMap.FindAction("J", throwIfNotFound: true);
         m_RhythmMap_K = m_RhythmMap.FindAction("K", throwIfNotFound: true);
         m_RhythmMap_L = m_RhythmMap.FindAction("L", throwIfNotFound: true);
-        // FlyingMap
-        m_FlyingMap = asset.FindActionMap("FlyingMap", throwIfNotFound: true);
-        m_FlyingMap_MouseMovement = m_FlyingMap.FindAction("MouseMovement", throwIfNotFound: true);
+        // PauseMap
+        m_PauseMap = asset.FindActionMap("PauseMap", throwIfNotFound: true);
+        m_PauseMap_Pause = m_PauseMap.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -647,51 +647,51 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     }
     public RhythmMapActions @RhythmMap => new RhythmMapActions(this);
 
-    // FlyingMap
-    private readonly InputActionMap m_FlyingMap;
-    private List<IFlyingMapActions> m_FlyingMapActionsCallbackInterfaces = new List<IFlyingMapActions>();
-    private readonly InputAction m_FlyingMap_MouseMovement;
-    public struct FlyingMapActions
+    // PauseMap
+    private readonly InputActionMap m_PauseMap;
+    private List<IPauseMapActions> m_PauseMapActionsCallbackInterfaces = new List<IPauseMapActions>();
+    private readonly InputAction m_PauseMap_Pause;
+    public struct PauseMapActions
     {
         private @PlayerInputs m_Wrapper;
-        public FlyingMapActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MouseMovement => m_Wrapper.m_FlyingMap_MouseMovement;
-        public InputActionMap Get() { return m_Wrapper.m_FlyingMap; }
+        public PauseMapActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_PauseMap_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_PauseMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(FlyingMapActions set) { return set.Get(); }
-        public void AddCallbacks(IFlyingMapActions instance)
+        public static implicit operator InputActionMap(PauseMapActions set) { return set.Get(); }
+        public void AddCallbacks(IPauseMapActions instance)
         {
-            if (instance == null || m_Wrapper.m_FlyingMapActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_FlyingMapActionsCallbackInterfaces.Add(instance);
-            @MouseMovement.started += instance.OnMouseMovement;
-            @MouseMovement.performed += instance.OnMouseMovement;
-            @MouseMovement.canceled += instance.OnMouseMovement;
+            if (instance == null || m_Wrapper.m_PauseMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PauseMapActionsCallbackInterfaces.Add(instance);
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
-        private void UnregisterCallbacks(IFlyingMapActions instance)
+        private void UnregisterCallbacks(IPauseMapActions instance)
         {
-            @MouseMovement.started -= instance.OnMouseMovement;
-            @MouseMovement.performed -= instance.OnMouseMovement;
-            @MouseMovement.canceled -= instance.OnMouseMovement;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
-        public void RemoveCallbacks(IFlyingMapActions instance)
+        public void RemoveCallbacks(IPauseMapActions instance)
         {
-            if (m_Wrapper.m_FlyingMapActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PauseMapActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IFlyingMapActions instance)
+        public void SetCallbacks(IPauseMapActions instance)
         {
-            foreach (var item in m_Wrapper.m_FlyingMapActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PauseMapActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_FlyingMapActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PauseMapActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public FlyingMapActions @FlyingMap => new FlyingMapActions(this);
+    public PauseMapActions @PauseMap => new PauseMapActions(this);
     public interface IGroundMapActions
     {
         void OnDirections(InputAction.CallbackContext context);
@@ -710,8 +710,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnK(InputAction.CallbackContext context);
         void OnL(InputAction.CallbackContext context);
     }
-    public interface IFlyingMapActions
+    public interface IPauseMapActions
     {
-        void OnMouseMovement(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

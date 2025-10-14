@@ -45,7 +45,8 @@ public class PauseMenu : MonoBehaviour
 
     private void QuitGameplay(ClickEvent evt)
     {
-        this.gameObject.SetActive(false);
-        UIManager.Instance.LoadNextMenu(SceneScript.MainMenu);
+
+        FadeTransitions.Instance.SwitchScenes("MainMenu", SceneScript.MainMenu);
+        //UIManager.Instance.DisplayPauseMenu(false);
     }
 }

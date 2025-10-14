@@ -346,14 +346,14 @@
             ]
         },
         {
-            "name": "FlyingMap",
-            "id": "15935a79-1c6b-402a-95c1-a2522ed952c2",
+            "name": "PauseMap",
+            "id": "64b0fcb2-5754-4470-b2d8-9333ea17a567",
             "actions": [
                 {
-                    "name": "MouseMovement",
-                    "type": "PassThrough",
-                    "id": "10954af1-1d7a-4a31-9006-ac109b2ceac5",
-                    "expectedControlType": "Vector2",
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "29a9ac32-cf79-4390-88dd-5c6e4729b70e",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -362,12 +362,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3dbf1dd9-2b83-418f-97df-cec34eb8d79c",
-                    "path": "<Mouse>/delta",
+                    "id": "84dc42f6-9784-4803-b491-d1b7861201a7",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseMovement",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
