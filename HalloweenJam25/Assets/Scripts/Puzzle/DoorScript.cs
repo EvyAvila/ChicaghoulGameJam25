@@ -16,7 +16,7 @@ public class DoorScript : MonoBehaviour
         if (doorOpening)
             return;
 
-        targetPos.y += 5;
+        targetPos = transform.localPosition + new Vector3(0, 7, 0);
         doorOpening = true;
     }
 
@@ -25,7 +25,7 @@ public class DoorScript : MonoBehaviour
         if (doorOpening)
             return;
 
-        targetPos.y -= 5;
+        targetPos = transform.localPosition - new Vector3(0, 7, 0);
         doorOpening = true;
     }
 
@@ -33,7 +33,7 @@ public class DoorScript : MonoBehaviour
     {
         if (doorOpening)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, 5 * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, 5 * Time.deltaTime);
 
             if (Mathf.Approximately(transform.position.y, targetPos.y)) 
                 doorOpening = false;

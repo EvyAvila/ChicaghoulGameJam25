@@ -31,16 +31,27 @@ public class SessionTimer : MonoBehaviour
 
         //Subscriptions
         SessionTrigger.OnSessionTriggerEnter += OnTimerStart;
+        GameCurator.OnWindowEscape += OnStopTimer;
+        GameCurator.OnReachFinalSection += OnStopTimer;
+        GameCurator.OnLoseGameSun += OnStopTimer;
+        GameCurator.OnLoseGameSouls += OnStopTimer;
     }
     private void OnDisable()
     {
         SessionTrigger.OnSessionTriggerEnter -= OnTimerStart;
+        GameCurator.OnWindowEscape -= OnStopTimer;
+        GameCurator.OnReachFinalSection -= OnStopTimer;
+        GameCurator.OnLoseGameSun -= OnStopTimer;
+        GameCurator.OnLoseGameSouls -= OnStopTimer;
     }
     private void OnTimerStart()
     {
         countTimer = true;
     }
-
+    private void OnStopTimer()
+    {
+        countTimer = false;
+    }
     private void Update()
     {
         if (countTimer)
