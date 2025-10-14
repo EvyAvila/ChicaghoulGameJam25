@@ -366,6 +366,34 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PauseMap"",
+            ""id"": ""64b0fcb2-5754-4470-b2d8-9333ea17a567"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""29a9ac32-cf79-4390-88dd-5c6e4729b70e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""84dc42f6-9784-4803-b491-d1b7861201a7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -386,6 +414,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_RhythmMap_J = m_RhythmMap.FindAction("J", throwIfNotFound: true);
         m_RhythmMap_K = m_RhythmMap.FindAction("K", throwIfNotFound: true);
         m_RhythmMap_L = m_RhythmMap.FindAction("L", throwIfNotFound: true);
+        // PauseMap
+        m_PauseMap = asset.FindActionMap("PauseMap", throwIfNotFound: true);
+        m_PauseMap_Pause = m_PauseMap.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -615,6 +646,52 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public RhythmMapActions @RhythmMap => new RhythmMapActions(this);
+
+    // PauseMap
+    private readonly InputActionMap m_PauseMap;
+    private List<IPauseMapActions> m_PauseMapActionsCallbackInterfaces = new List<IPauseMapActions>();
+    private readonly InputAction m_PauseMap_Pause;
+    public struct PauseMapActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public PauseMapActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_PauseMap_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_PauseMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseMapActions set) { return set.Get(); }
+        public void AddCallbacks(IPauseMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PauseMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PauseMapActionsCallbackInterfaces.Add(instance);
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        private void UnregisterCallbacks(IPauseMapActions instance)
+        {
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        public void RemoveCallbacks(IPauseMapActions instance)
+        {
+            if (m_Wrapper.m_PauseMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPauseMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PauseMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PauseMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PauseMapActions @PauseMap => new PauseMapActions(this);
     public interface IGroundMapActions
     {
         void OnDirections(InputAction.CallbackContext context);
@@ -632,5 +709,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnJ(InputAction.CallbackContext context);
         void OnK(InputAction.CallbackContext context);
         void OnL(InputAction.CallbackContext context);
+    }
+    public interface IPauseMapActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -8,6 +8,13 @@ public class EndingMenu : MonoBehaviour
     private Button returnToMenuBtn;
     protected VisualElement root;
     public UIDocument uiDocument;
+    private bool isActive;
+
+    private void Start()
+    {
+        isActive = false;
+        UIManager.Instance.DisplayPauseMenu(isActive);
+    }
 
     private void OnEnable()
     {
@@ -37,7 +44,8 @@ public class EndingMenu : MonoBehaviour
 
     private void ExitGame(ClickEvent evt)
     {
-        this.gameObject.SetActive(false);
+        isActive = false;
+        UIManager.Instance.DisplayPauseMenu(isActive);
         UIManager.Instance.LoadNextMenu(SceneScript.MainMenu);
     }
 }
