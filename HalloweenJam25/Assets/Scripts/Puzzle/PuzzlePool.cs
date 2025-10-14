@@ -26,7 +26,7 @@ public class PuzzlePool : MonoBehaviour
 
         GameObject o = PuzzlesPrefabs[rand];
 
-        PuzzlesPrefabs.RemoveAt(rand);
+        //PuzzlesPrefabs.RemoveAt(rand);
 
         return o;
     }    
