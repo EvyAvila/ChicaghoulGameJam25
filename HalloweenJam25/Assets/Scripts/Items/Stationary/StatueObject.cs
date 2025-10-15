@@ -17,8 +17,9 @@ public class StatueObject : StationaryItem
     /// </summary>
     public Direction FacingDirection { get { return facingDirection; } }
     private Direction facingDirection;
-    
+
     //Rotation
+    [SerializeField] private Transform parentTransform;
     private Quaternion nextDirection;
     private bool rotating;
 
@@ -26,19 +27,19 @@ public class StatueObject : StationaryItem
     public event Action OnStatueRotated;
     protected override void Start()
     {
-        if (transform.forward == Vector3.forward)
+        if (transform.forward == parentTransform.forward)
         {
             facingDirection = Direction.NORTH;
         }
-        else if (transform.forward == Vector3.right)
+        else if (transform.forward == parentTransform.right)
         {
             facingDirection = Direction.EAST;
         }
-        else if (transform.forward == Vector3.left)
+        else if (transform.forward == -parentTransform.right)
         {
             facingDirection = Direction.WEST;
         }
-        else if (transform.forward == Vector3.back)
+        else if (transform.forward == -parentTransform.forward)
         {
             facingDirection = Direction.SOUTH;
         }
@@ -77,7 +78,7 @@ public class StatueObject : StationaryItem
                 transform.rotation = nextDirection;
 
                 rotating = false;
-                float dot = Vector3.Dot(Vector3.forward, transform.forward);
+                float dot = Vector3.Dot(parentTransform.forward, transform.forward);
 
                 if (dot > 0.9f)
                 {
