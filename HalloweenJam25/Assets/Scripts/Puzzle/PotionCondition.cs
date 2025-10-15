@@ -30,26 +30,41 @@ public class PotionCondition : PuzzleCondition
     private void CheckColors(int i, PotionColor color)
     {
         Color c = Color.white;
+        string nameTemp = "";
         // Blue, Yellow, Green, Red, Brown, Purple
         switch (color)
         {
             case PotionColor.Blue:
                 c = Color.blue;
+                nameTemp = "Blue water";
                 break;
             case PotionColor.Yellow:
                 c = Color.yellow;
+                nameTemp = "Yellow Dandelion";
                 break;
             case PotionColor.Green:
                 c = Color.green;
+                nameTemp = "Green Rosemary";
                 break;
             case PotionColor.Red:
                 c = Color.red;
+                nameTemp = "Red Spices";
                 break;
             case PotionColor.Brown:
                 c = new Color(0.5f, 0.25f, 0.0f);
+                nameTemp = "Brown Tea";
                 break;
             case PotionColor.Purple:
                 c = new Color(0.5f, 0.0f, 0.5f);
+                nameTemp = "Purple Lavander";
+                break;
+            case PotionColor.Orange:
+                c = new Color(1.0f, 0.5f, 0.0f);
+                nameTemp = "Orange Pumpkin";
+                break;
+            case PotionColor.Gray:
+                c = Color.gray;
+                nameTemp = "Gray ash";
                 break;
 
         }
@@ -58,6 +73,7 @@ public class PotionCondition : PuzzleCondition
         //PotionReqUI.instance.SetIcons(i, c);
         if (potionUi != null)
             potionUi.SetIcons(i, c);
+            potionUi.SetName(i, nameTemp);
     }
 
     public override bool isCorrect()

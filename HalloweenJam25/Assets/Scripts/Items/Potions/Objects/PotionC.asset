@@ -15,4 +15,4 @@ MonoBehaviour:
   color: 2
   sideLiquid: {r: 0.049341444, g: 0.7924528, b: 0.11368006, a: 1}
   topLiquid: {r: 0, g: 0.49056602, b: 0.013716374, a: 1}
-  potionName: Herb
+  potionName: Green Rosemary

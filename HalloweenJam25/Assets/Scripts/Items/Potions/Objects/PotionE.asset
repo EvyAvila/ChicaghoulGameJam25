@@ -15,4 +15,4 @@ MonoBehaviour:
   color: 4
   sideLiquid: {r: 0.3773585, g: 0.26292315, b: 0.06977574, a: 1}
   topLiquid: {r: 0.3018868, g: 0.16848123, b: 0.02734071, a: 1}
-  potionName: Dirt
+  potionName: Brown Tea
