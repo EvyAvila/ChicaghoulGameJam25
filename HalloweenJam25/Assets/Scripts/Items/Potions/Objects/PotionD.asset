@@ -15,4 +15,4 @@ MonoBehaviour:
   color: 3
   sideLiquid: {r: 0.7921569, g: 0.065816976, b: 0.0509804, a: 1}
   topLiquid: {r: 0.49019608, g: 0, b: 0.02240106, a: 1}
-  potionName: Spices
+  potionName: Red Spices

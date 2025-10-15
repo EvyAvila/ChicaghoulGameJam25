@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0db3489cf570c54f9e9f8214439bfdc, type: 3}
-  m_Name: PotionA
+  m_Name: PotionH
   m_EditorClassIdentifier: 
-  color: 1
-  sideLiquid: {r: 0.9433962, g: 0.93894666, b: 0.14773944, a: 1}
-  topLiquid: {r: 0.64044654, g: 0.6784314, b: 0.22745097, a: 1}
-  potionName: Yellow Dandelion
+  color: 7
+  sideLiquid: {r: 0.4528302, g: 0.44167072, b: 0.42548952, a: 1}
+  topLiquid: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  potionName: Gray ash

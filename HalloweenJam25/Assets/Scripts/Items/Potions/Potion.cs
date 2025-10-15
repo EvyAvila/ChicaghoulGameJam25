@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PotionColor { Blue, Yellow, Green, Red, Brown, Purple}
+public enum PotionColor { Blue, Yellow, Green, Red, Brown, Purple, Orange, Gray}
 
 [CreateAssetMenu(fileName = "New_Potion", menuName = "Potion")]
 public class Potion : ScriptableObject
