@@ -20,8 +20,8 @@ public class PlayerAnimationManager : MonoBehaviour
         interacter = GetComponent<WorldInteracter>();
 
         DefaultHash = Animator.StringToHash(DefaultName);
-        GrabStartHash = Animator.StringToHash(GrabStartName);
         HoverStartHash = Animator.StringToHash(HoverStartName);
+        GrabStartHash = Animator.StringToHash(GrabStartName);
 
         interacter.OnGrabInteractable += Interacter_OnGrabInteractable;
         interacter.OnHoverInteractable += Interacter_OnHoverInteractable;
@@ -36,15 +36,15 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void Interacter_OnNoneInteractable()
     {
-        animator.CrossFade(DefaultHash,0.3f);
+        animator.CrossFade(DefaultHash,0.1f);
     }
 
     private void Interacter_OnHoverInteractable()
     {
-        animator.CrossFade(HoverStartHash,0.3f);
+        animator.CrossFade(HoverStartHash,0.1f);
     }
     private void Interacter_OnGrabInteractable()
     {
-        animator.CrossFade(GrabStartHash, 0.3f);
+        animator.CrossFade(GrabStartHash, 0.1f);
     }
 }

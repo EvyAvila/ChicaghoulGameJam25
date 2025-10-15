@@ -78,6 +78,7 @@ public class WorldInteracter : MonoBehaviour
                     OnGrabInteractable?.Invoke();
                     hasHovered = false;
 
+
                     return;
                 }
 
@@ -107,6 +108,8 @@ public class WorldInteracter : MonoBehaviour
     {
         currentInteractingItem.GetComponent<GrabbableItem>().OnForgetItem -= SoftStopInteract;
         currentInteractingItem = null;
+
+        OnNoneInteractable?.Invoke();
     }
 
     public void StopInteracting()
@@ -124,5 +127,7 @@ public class WorldInteracter : MonoBehaviour
 
         //Stop tracking the item
         currentInteractingItem = null;
+
+        OnNoneInteractable?.Invoke();
     }
 }
