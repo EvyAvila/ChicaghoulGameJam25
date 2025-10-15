@@ -39,9 +39,6 @@ public class PuzzleSubmitter : InteractableObject
         failCount = 0;
         rewardDispenser = GetComponent<PuzzleRewardDispenser>();
 
-        if (trackedPuzzle != null)
-            trackedPuzzle.OnPuzzleSolved.AddListener(AllowPlayerReward);
-
         dispenseLocked = false;
     }
     private void OnDisable()
@@ -72,6 +69,9 @@ public class PuzzleSubmitter : InteractableObject
     public void SetTrackedPuzzle(PuzzleBase instance)
     {
         trackedPuzzle = instance;
+
+        if (trackedPuzzle != null)
+            trackedPuzzle.OnPuzzleSolved.AddListener(AllowPlayerReward);
     }
 
     //Overrides

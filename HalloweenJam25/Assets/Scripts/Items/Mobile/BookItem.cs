@@ -6,7 +6,7 @@ using UnityEngine;
 public class BookItem : PluggableItem
 {
     [SerializeField] private int value;
-    [SerializeField] private TextMeshProUGUI bookText;
+    [SerializeField] private TextMeshPro bookText;
 
     protected override void Start()
     {

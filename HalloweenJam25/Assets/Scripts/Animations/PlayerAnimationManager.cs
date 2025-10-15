@@ -29,9 +29,12 @@ public class PlayerAnimationManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        interacter.OnGrabInteractable -= Interacter_OnGrabInteractable;
-        interacter.OnHoverInteractable -= Interacter_OnHoverInteractable;
-        interacter.OnNoneInteractable -= Interacter_OnNoneInteractable;
+        if (interacter != null)
+        {
+            interacter.OnGrabInteractable -= Interacter_OnGrabInteractable;
+            interacter.OnHoverInteractable -= Interacter_OnHoverInteractable;
+            interacter.OnNoneInteractable -= Interacter_OnNoneInteractable;
+        }
     }
 
     private void Interacter_OnNoneInteractable()
