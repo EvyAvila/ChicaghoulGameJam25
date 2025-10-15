@@ -14,18 +14,26 @@ public class PotionItem : MonoBehaviour
     [SerializeField]
     private GameObject Liquid;
 
-    //public event Action OnPotionSelected;
-    
+    [SerializeField]
+    private ParticleSystem currentParticle;
+
     // Start is called before the first frame update
     void Start()
     {
         Liquid.GetComponent<MeshRenderer>().material.SetColor("_SideColor", potion.sideLiquid);
         Liquid.GetComponent<MeshRenderer>().material.SetColor("_TopColor", potion.topLiquid);
+
+        StopParticle();
+
     }
 
-    /*
-    protected void Selected()
+    public void PlayParticle()
     {
-        OnPotionSelected?.Invoke();
-    }*/
+        currentParticle.Play();
+    }
+
+    public void StopParticle()
+    {
+        currentParticle.Stop();
+    }
 }

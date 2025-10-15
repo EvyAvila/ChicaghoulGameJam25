@@ -17,14 +17,11 @@ public class Cauldron : MonoBehaviour
     /// </summary>
     private Vector3 direction;
 
-    [SerializeField] private GameObject PartSystem;
-    private ParticleSystem ps; // temp
-
+ 
     public PotionColor potionColor { get; private set; }
 
     public static event Action<PotionColor> selected;
 
-    //[SerializeField] 
     public static List<PotionColor> enteredColors;
 
     [SerializeField] private int waiting;
@@ -32,17 +29,16 @@ public class Cauldron : MonoBehaviour
 
     public bool isSolved { get; private set; }
 
-    // Start is called before the first frame update
+    public bool isPouring { get; private set; }
+
+    private PotionItem pot;
+
     void Start()
     {
         distance = distance == 0 ? 3 : distance;
         direction = Vector3.up;
 
         CheckPotion(0);
-
-        ps = PartSystem.GetComponent<ParticleSystem>();
-
-        ps.Stop();
 
         isSolved = false;
     }
@@ -64,12 +60,9 @@ public class Cauldron : MonoBehaviour
 
         if(Physics.Raycast(transform.position, direction, out info, distance))
         {
-            PotionItem pot = info.collider.GetComponent<PotionItem>();
+            pot = info.collider.GetComponent<PotionItem>();
 
             potionColor = pot.p.color;
-
-            //This is meant to get the name 
-            //Debug.Log(pot.p.potionName);
         }
     }
 
@@ -77,7 +70,8 @@ public class Cauldron : MonoBehaviour
     {
         
         selected?.Invoke(potionColor);
-        ps.Play();
+        pot.PlayParticle();
+
 
         StartCoroutine(Timer(waiting));
     }
@@ -85,15 +79,15 @@ public class Cauldron : MonoBehaviour
     public void Completed()
     {
         isSolved = true;
-        Debug.Log("The puzzle was solved correctly!");
     }
    
 
     IEnumerator Timer(float wait)
     {
+        isPouring = true;
         yield return new WaitForSeconds(wait);
-
-        ps.Stop();
+        isPouring = false;
+        pot.StopParticle();
         StopAllCoroutines();
     }    
 }

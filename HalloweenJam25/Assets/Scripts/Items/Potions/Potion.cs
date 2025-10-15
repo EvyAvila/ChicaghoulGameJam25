@@ -26,7 +26,4 @@ public class Potion : ScriptableObject
     /// Name of the potion. I.E Dandelion for Yellow Potion
     /// </summary>
     public string potionName;
-
-
-    
 }

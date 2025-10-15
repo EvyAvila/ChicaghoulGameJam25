@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class WorldInteracter : MonoBehaviour
@@ -15,6 +17,42 @@ public class WorldInteracter : MonoBehaviour
     /// Reference to currently interacted item
     /// </summary>
     private InteractableObject currentInteractingItem;
+
+    public event Action OnHoverInteractable;
+    public event Action OnGrabInteractable;
+    public event Action OnNoneInteractable;
+    private bool hasHovered;
+    
+    private void RayCastForInteractDetection()
+    {
+        RaycastHit[] res = new RaycastHit[3];
+
+        if (Physics.RaycastNonAlloc(interactPoint.position, interactPoint.forward, res, rayLength, interactMask.value) > 0)
+        {
+            if (hasHovered)
+                return;
+
+            hasHovered = true;
+            OnHoverInteractable?.Invoke();
+        }
+        else
+        {
+
+            if (!hasHovered)
+                return;
+
+            hasHovered = false;
+            OnNoneInteractable?.Invoke();
+        }
+    }
+
+    private void Update()
+    {
+        if (currentInteractingItem != null)
+            return;
+
+        RayCastForInteractDetection();
+    }
     public void CheckForInteract()
     {
         if (interactPoint == null)
@@ -36,10 +74,15 @@ public class WorldInteracter : MonoBehaviour
                 {
                     currentInteractingItem.Interact(holdPoint);
                     g.OnForgetItem += SoftStopInteract;
+             
+                    OnGrabInteractable?.Invoke();
+                    hasHovered = false;
+
                     return;
                 }
 
                 currentInteractingItem.Interact();
+
             }
         }
     }
