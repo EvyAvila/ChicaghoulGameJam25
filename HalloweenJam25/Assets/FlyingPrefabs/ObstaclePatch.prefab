@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2119428638681661231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000013411044}
-  m_LocalPosition: {x: -2.75, y: 4.5, z: 0}
+  m_LocalPosition: {x: -2.75, y: 3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 3140455020042229466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000013411044}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 7479492142516499496}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000013411044}
-  m_LocalPosition: {x: 3, y: 4.5, z: 0}
+  m_LocalPosition: {x: 3, y: 3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,3 +248,4 @@ MonoBehaviour:
   - {fileID: 2147242069762804946, guid: 9f61f0c8570394d4da452f76c1edf8fa, type: 3}
   cielingObstacles:
   - {fileID: 7934534867039633215, guid: a743c9f3549dc3249ae8382ac06c9788, type: 3}
+  - {fileID: 671654307752926641, guid: 343a011ba70371840a3db942880842e2, type: 3}

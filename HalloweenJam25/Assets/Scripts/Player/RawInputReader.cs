@@ -35,6 +35,7 @@ public class RawInputReader : MonoBehaviour
         //Static subscriptions
         InputTogglerEvents.OnDisablePlayerInputs += OnHardDisable;
         InputTogglerEvents.OnReEnablePlayerInputs += OnHardReEnable;
+        GameCurator.OnReachFinalSection += OnHardDisable;
     }
 
     private void OnHardReEnable()
@@ -94,5 +95,6 @@ public class RawInputReader : MonoBehaviour
         //Static subscriptions
         InputTogglerEvents.OnDisablePlayerInputs -= OnHardDisable;
         InputTogglerEvents.OnReEnablePlayerInputs -= OnHardReEnable;
+        GameCurator.OnReachFinalSection -= OnHardDisable;
     }
 }

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Church Organ
+* source:	https://sketchfab.com/3d-models/old-church-organ-996ee029c38b4e78a12cea2e1c2d9f32
+* author:	Nathan Sioui (https://sketchfab.com/NathanSioui)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Church Organ" (https://sketchfab.com/3d-models/old-church-organ-996ee029c38b4e78a12cea2e1c2d9f32) by Nathan Sioui (https://sketchfab.com/NathanSioui) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

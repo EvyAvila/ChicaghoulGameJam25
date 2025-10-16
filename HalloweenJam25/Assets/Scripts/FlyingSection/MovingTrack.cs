@@ -5,9 +5,32 @@ using UnityEngine;
 public class MovingTrack : MonoBehaviour
 {
     [SerializeField] private float trackSpeed;
+    private bool moveTrack;
+
+    private void Start()
+    {
+        CameraSwitcher.OnFlyingTransitionFinished += CameraSwitcher_OnFlyingTransitionFinished;
+    }
+    private void OnDisable()
+    {
+        CameraSwitcher.OnFlyingTransitionFinished += CameraSwitcher_OnFlyingTransitionFinished;
+    }
+
+    private void CameraSwitcher_OnFlyingTransitionFinished()
+    {
+        StartTrack();
+    }
 
     private void Update()
     {
+        if (!moveTrack)
+            return;
+
         transform.localPosition += Vector3.back * trackSpeed * Time.deltaTime;
+    }
+
+    private void StartTrack()
+    {
+        moveTrack = true;
     }
 }

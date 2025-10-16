@@ -6,7 +6,7 @@ using UnityEngine;
 public class SessionTimer : MonoBehaviour
 {
     [SerializeField] private float totalSeconds;
-    private float elapsedSeconds;
+    public float elapsedSeconds;
     private bool countTimer;
     public static SessionTimer Instance { get; private set; }
 
@@ -43,6 +43,11 @@ public class SessionTimer : MonoBehaviour
         GameCurator.OnReachFinalSection -= OnStopTimer;
         GameCurator.OnLoseGameSun -= OnStopTimer;
         GameCurator.OnLoseGameSouls -= OnStopTimer;
+    }
+
+    public float GetTimeRatio()
+    {
+        return elapsedSeconds/totalSeconds;
     }
     private void OnTimerStart()
     {
