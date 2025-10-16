@@ -246,6 +246,7 @@ MonoBehaviour:
   - {fileID: 4146347509228911911}
   groundObstacles:
   - {fileID: 2147242069762804946, guid: 9f61f0c8570394d4da452f76c1edf8fa, type: 3}
+  - {fileID: 6852786262965774954, guid: 4d8f5fcfc38f1b442a9804c9308994c7, type: 3}
   cielingObstacles:
   - {fileID: 7934534867039633215, guid: a743c9f3549dc3249ae8382ac06c9788, type: 3}
   - {fileID: 671654307752926641, guid: 343a011ba70371840a3db942880842e2, type: 3}
