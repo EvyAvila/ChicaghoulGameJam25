@@ -8376,7 +8376,7 @@ GameObject:
   - component: {fileID: 6166787963228358410}
   - component: {fileID: 6941225473889956052}
   - component: {fileID: 2799652965303900047}
-  m_Layer: 22
+  m_Layer: 18
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8481,7 +8481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740d5a77b8638b54fbe3f95f69d2fe50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingCollider: 1
+  usingCollider: 0
 --- !u!1 &5875029309534961385
 GameObject:
   m_ObjectHideFlags: 0
