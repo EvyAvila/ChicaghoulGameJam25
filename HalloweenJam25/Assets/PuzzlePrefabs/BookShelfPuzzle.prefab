@@ -6487,20 +6487,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8675878944310281024, guid: 6710776ec0f7561418c6b22eb912c647, type: 3}
       propertyPath: m_text
-      value: 'To all Attendants,
+      value: 'To all Servants,
 
 
-
-        Ensure that books are slotted and lock
-        into their holders when returned.
-
-
-        The shelves remain in disrepair,
-        and improperly stored books will continue to fall out.
+        Ensure that books are slotted and lock into
+        their holders when returned.
 
 
-        The King
-        wishes to not be burdened with this constant clatter.'
+        The shelves remain in disrepair, and
+        improperly stored books will continue to fall out.
+
+
+        The King wishes
+        to not be burdened with this constant clatter.'
       objectReference: {fileID: 0}
     - target: {fileID: 8675878944310281024, guid: 6710776ec0f7561418c6b22eb912c647, type: 3}
       propertyPath: m_fontSize

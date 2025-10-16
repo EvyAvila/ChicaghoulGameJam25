@@ -1959,6 +1959,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4397542320294664611, guid: 6710776ec0f7561418c6b22eb912c647, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397542320294664611, guid: 6710776ec0f7561418c6b22eb912c647, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.014
       objectReference: {fileID: 0}
@@ -1982,7 +1986,7 @@ PrefabInstance:
       propertyPath: m_text
       value: "The king obeys none,\r\nhe stands with his pride,\r\nbut wherever he
         walks,\r\nthe blade's by his side.\n\nThe queen and her king,\r\nthey differ
-        in thier views,\r\nonce a free spirit,\r\nnow delves in taboo.\n\nThe Knight
+        in their views,\r\nonce a free spirit,\r\nnow delves in taboo.\n\nThe Knight
         donning iron, \r\nraised in royalty from youth,\r\nwields a sturdy metal
         blade,\r\nand keeps check on the truth.\n\nThe critique of the court, \nwho
         performs for his meal,\nbut a slip of the tongue,\nand they will be met with

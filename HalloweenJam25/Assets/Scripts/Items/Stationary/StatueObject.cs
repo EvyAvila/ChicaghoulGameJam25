@@ -80,25 +80,43 @@ public class StatueObject : StationaryItem
                 rotating = false;
                 float dot = Vector3.Dot(parentTransform.forward, transform.forward);
 
-                if (dot > 0.9f)
+                if (transform.forward == parentTransform.forward)
                 {
                     facingDirection = Direction.NORTH;
                 }
-                else if (dot < -0.9f)
+                else if (transform.forward == parentTransform.right)
+                {
+                    facingDirection = Direction.EAST;
+                }
+                else if (transform.forward == -parentTransform.right)
+                {
+                    facingDirection = Direction.WEST;
+                }
+                else if (transform.forward == -parentTransform.forward)
                 {
                     facingDirection = Direction.SOUTH;
                 }
-                else if (dot > -0.3 && dot < 0.3)
-                {
-                    if (transform.forward.x > 0)
-                    {
-                        facingDirection = Direction.EAST;
-                    }
-                    else
-                    {
-                        facingDirection = Direction.WEST;
-                    }
-                }
+
+
+                //if (dot > 0.9f)
+                //{
+                //    facingDirection = Direction.NORTH;
+                //}
+                //else if (dot < -0.9f)
+                //{
+                //    facingDirection = Direction.SOUTH;
+                //}
+                //else if (dot > -0.3 && dot < 0.3)
+                //{
+                //    if (transform.forward.x == 1 || transform.forward.z == -1)
+                //    {
+                //        facingDirection = Direction.EAST;
+                //    }
+                //    else
+                //    {
+                //        facingDirection = Direction.WEST;
+                //    }
+                //}
 
                 OnStatueRotated?.Invoke();
             }
