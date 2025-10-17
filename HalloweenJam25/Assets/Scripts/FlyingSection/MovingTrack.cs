@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovingTrack : MonoBehaviour
 {
     [SerializeField] private float trackSpeed;
-    private bool moveTrack;
+    [SerializeField]private bool moveTrack;
 
     private void Start()
     {
