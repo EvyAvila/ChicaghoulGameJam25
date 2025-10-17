@@ -4,11 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using System;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class BloodTracker : MonoBehaviour
 {
     public static BloodTracker Instance { get; private set; }
     private static float bloodLevel;
+    public static event Action<float> updateBlood;
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class BloodTracker : MonoBehaviour
     {
         bloodLevel += level;
         Debug.Log($"Add blood - Curr {bloodLevel}");
+        updateBlood?.Invoke(level);
     }
     public static float GetBloodLevel()
     {
@@ -41,7 +45,7 @@ public class BloodTracker : MonoBehaviour
         float damage = bloodLevel * 0.1f;
         
         bloodLevel -= damage;
-
+        updateBlood?.Invoke(-damage);
         Debug.Log($"Lost blood - Curr {bloodLevel}");
 
 

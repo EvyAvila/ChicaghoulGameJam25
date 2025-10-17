@@ -37,12 +37,14 @@ public class UIManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        pause.gameObject.SetActive(false);
+        ending.gameObject.SetActive(false);
+        
     }
 
     private void Start()
     {
-        pause.gameObject.SetActive(false);
-        ending.gameObject.SetActive(false);
         LoadNextMenu(startingUIScript);
     }
 
