@@ -6,9 +6,12 @@ using UnityEngine.UIElements;
 public class EndingMenu : MonoBehaviour
 {
     private Button returnToMenuBtn;
+    private VisualElement endingBG;
     private Label endingResult;
     protected VisualElement root;
     public UIDocument uiDocument;
+
+    [SerializeField] private Canvas fadeCanvas;
     private bool isActive;
 
     private void Start()
@@ -32,24 +35,48 @@ public class EndingMenu : MonoBehaviour
     {
         returnToMenuBtn = root.Q("ReturnToMenuBtn") as Button;
         endingResult = root.Q("EndingLabel") as Label;
+        endingBG = root.Q("EndingElements") as VisualElement;
 
         returnToMenuBtn.RegisterCallback<ClickEvent>(ExitGame);
         if(GameEndingPicker.Instance != null)
             DisplayEnding();
+
+
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        UnityEngine.Cursor.visible = true;
+
     }
 
     protected void UnSetProperties()
     {
-        returnToMenuBtn.UnregisterCallback<ClickEvent>(ExitGame);
-        
+        if (fadeCanvas != null)
+            fadeCanvas.sortingOrder = 1;
+
+        if (returnToMenuBtn != null)
+            returnToMenuBtn.UnregisterCallback<ClickEvent>(ExitGame);        
     }
 
     private void ExitGame(ClickEvent evt)
     {
         isActive = false;
-        UIManager.Instance.DisplayPauseMenu(isActive);
         //UIManager.Instance.LoadNextMenu(SceneScript.MainMenu);
         FadeTransitions.Instance.SwitchScenes("MainMenu", SceneScript.MainMenu);
+        UIManager.Instance.DisplayEndingMenu(isActive);
+    }
+
+    private void SetBGOpacity(float t)
+    {
+        StyleColor bg = endingBG.style.backgroundColor;
+        Color b = bg.value;
+        b.a = t;
+        bg.value = b;
+        endingBG.style.backgroundColor = bg;
+
+        if (t == 1)
+        {
+            if (fadeCanvas != null)
+                fadeCanvas.sortingOrder = 0;
+        }
     }
 
     private void DisplayEnding()
@@ -57,13 +84,17 @@ public class EndingMenu : MonoBehaviour
         string output = "";
         var endingType = GameEndingPicker.Instance.ending;
         var failType = GameEndingPicker.Instance.failType;
-        
-        if(endingType == EndingType.FAILURE && failType == FailureType.SOULS)
+
+        SetBGOpacity(0);
+
+        if (endingType == EndingType.FAILURE && failType == FailureType.SOULS)
         {
+            SetBGOpacity(1);
             output = "You've awoken the souls";
         }
         else if (endingType == EndingType.FAILURE && failType == FailureType.SUN)
         {
+            SetBGOpacity(1);
             output = "Cooked by the sun";
         }
         else if(endingType == EndingType.BAD)

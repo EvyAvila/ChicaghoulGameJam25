@@ -15,6 +15,18 @@ public class TimeLineFinishedMessage : MonoBehaviour
         OnTimeLineFinished?.Invoke();
         
         if (blackOutOnFinish)
-            OnBlackOutFinish?.Invoke();
+        {
+            StartCoroutine(EndOnBlack());
+        }
+    }
+
+    private IEnumerator EndOnBlack()
+    {
+        FadeTransitions.Instance.FadeIn(0.9f);
+        yield return new WaitForSecondsRealtime(1);
+
+        UIManager.Instance.DisplayEndingMenu(true);
+        FadeTransitions.Instance.FadeOut(0.9f);
+        yield return null;
     }
 }
