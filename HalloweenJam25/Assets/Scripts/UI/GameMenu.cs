@@ -11,7 +11,7 @@ public class GameMenu : BaseMenu
     [SerializeField] private float maxValue, speed;
 
     private VisualElement rotatingImage;
-    private float currentAngle = -180f;
+    private float currentAngle = 0; //-180f;
     private bool isActive;
 
     //[SerializeField] private ClockTimer clock;
