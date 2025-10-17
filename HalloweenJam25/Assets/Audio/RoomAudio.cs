@@ -18,40 +18,59 @@ public class RoomAudio : MonoBehaviour
     [SerializeField] private AudioClip Failure;
     private int failCount;
 
-    private AudioSource source;
+   [SerializeField] private AudioSource EntranceDoorSource;
+   [SerializeField] private AudioSource ExitDoorSource;
+   [SerializeField] private AudioSource SubmitSource;
 
     private void Start()
     {
         EntranceDoor.OnDoorClose += OnEntranceDoorClose;
         ExitDoor.OnDoorOpen += OnExitDoorOpen;
-        submitter.OnFailAttempt += OnFaileAttempt;
+        submitter.OnFailAttempt += OnFailedAttempt;
         submitter.OnFullFailure += Submitter_OnFullFailure;
+
+        EntranceDoorSource.clip = doorCloseClip;
+        ExitDoorSource.clip = doorOpenClip;
+
+        failCount = 1;
     }
 
     private void OnDisable()
     {
         EntranceDoor.OnDoorClose -= OnEntranceDoorClose;
         ExitDoor.OnDoorOpen -= OnExitDoorOpen;
-        submitter.OnFailAttempt -= OnFaileAttempt;
+        submitter.OnFailAttempt -= OnFailedAttempt;
         submitter.OnFullFailure -= Submitter_OnFullFailure;
     }
     private void Submitter_OnFullFailure()
     {
-        
+        SubmitSource.PlayOneShot(Failure);
     }
 
-    private void OnFaileAttempt()
+    private void OnFailedAttempt()
     {
-    
+        if (failCount == 1)
+        {
+            //SubmitSource.clip = FailOne;
+            SubmitSource.PlayOneShot(FailOne);
+        }
+        else if (failCount == 2)
+        {
+            //SubmitSource.clip = FailTwo;
+            SubmitSource.PlayOneShot(FailTwo);
+        }
+
+
+        failCount++;
     }
 
     private void OnExitDoorOpen()
     {
-
+        ExitDoorSource.Play();
     }
 
     private void OnEntranceDoorClose()
     {
-
+        EntranceDoorSource.Play();
     }
 }
