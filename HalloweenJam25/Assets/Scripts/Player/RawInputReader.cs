@@ -36,6 +36,8 @@ public class RawInputReader : MonoBehaviour
         InputTogglerEvents.OnDisablePlayerInputs += OnHardDisable;
         InputTogglerEvents.OnReEnablePlayerInputs += OnHardReEnable;
         GameCurator.OnReachFinalSection += OnHardDisable;
+        GameCurator.OnLoseGameSouls += OnHardDisable;
+        GameCurator.OnLoseGameSun += OnHardDisable;
     }
 
     private void OnHardReEnable()
@@ -96,5 +98,7 @@ public class RawInputReader : MonoBehaviour
         InputTogglerEvents.OnDisablePlayerInputs -= OnHardDisable;
         InputTogglerEvents.OnReEnablePlayerInputs -= OnHardReEnable;
         GameCurator.OnReachFinalSection -= OnHardDisable;
+        GameCurator.OnLoseGameSouls -= OnHardDisable;
+        GameCurator.OnLoseGameSun -= OnHardDisable;
     }
 }
