@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 447d88049f478c8458968723d760ced3
-timeCreated: 1495216905
+guid: cc4b2301e9c21ca478bce007107b42d5
+timeCreated: 1495464847
 licenseType: Store
 TextureImporter:
   fileIDToRecycleName: {}
@@ -8,7 +8,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -44,30 +44,14 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 1
+  textureType: 0
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 1024
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -87,5 +71,5 @@ AssetOrigin:
   productId: 85527
   packageName: Modular Medival Lanterns
   packageVersion: 1.0
-  assetPath: Assets/Laterns and candles/textures/glass [Normal].png
+  assetPath: Assets/Laterns and candles/textures/LampPost [Specular].tif
   uploadId: 185448
