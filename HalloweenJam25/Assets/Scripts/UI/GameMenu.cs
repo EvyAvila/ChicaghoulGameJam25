@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System;
+using System.Linq;
 
 public class GameMenu : BaseMenu
 {
@@ -11,11 +12,10 @@ public class GameMenu : BaseMenu
     [SerializeField] private float maxValue, speed;
 
     private VisualElement rotatingImage;
-    private float currentAngle = 0; //-180f;
+    private float currentAngle = 0, startAngle = 0, endAngle = 215; 
     private bool isActive;
 
-    //[SerializeField] private ClockTimer clock;
-
+    
     protected override void Awake()
     {
         scriptName = SceneScript.GameMenu;
@@ -45,49 +45,63 @@ public class GameMenu : BaseMenu
         }
         
 
-        BloodToggle.OnCollectBlood += OnBottleClicked;
+        BloodTracker.updateBlood += OnBottleUpdated;
 
         isActive = true;
     }
 
     protected override void UnSetProperties()
     {
-        BloodToggle.OnCollectBlood -= OnBottleClicked;
+        BloodTracker.updateBlood -= OnBottleUpdated;
         isActive = false;
     }
 
-    private void OnBottleClicked(float amount)
+    private void OnBottleUpdated(float amount)
     {
-        if (currentBottlePos >= bottles.Count)
+        if (bottles == null || bottles.Count == 0)
             return;
 
         
-        for(int i = 0; i < amount; i++)
+        int pos = amount > 0 ? bottles.FindIndex(x => x.value < maxValue) : bottles.FindLastIndex(x => x.value > 0);
+
+        if (pos == -1)
         {
-            if (bottles[bottles.Count - 1].value >= maxValue) //Ensures that if the last bottle is full, don't add any more and just leave
-                return;
-
-            if (bottles[currentBottlePos].value < maxValue)
-            {
-                bottles[currentBottlePos].value += 1;
-            }
-            else
-            {
-                currentBottlePos++;
-
-                if (currentBottlePos < bottles.Count)
-                {
-                    bottles[currentBottlePos].value += 1;
-                }
-
-            }
+            Debug.Log("No valid bottle to update.");
+            return;
         }
-       
+
+        float newValue = bottles[pos].value + amount;
+
+        
+        if (newValue > maxValue) //adding
+        {
+            float overflow = newValue - maxValue;
+            bottles[pos].value = maxValue;
+
+            if (pos < bottles.Count - 1)
+                bottles[pos + 1].value = Mathf.Min(bottles[pos + 1].value + overflow, maxValue);
+        }
+        else if (newValue < 0) //removing
+        {
+            float underflow = newValue; // negative value
+            bottles[pos].value = 0;
+
+            if (pos > 0)
+                bottles[pos - 1].value = Mathf.Max(bottles[pos - 1].value + underflow, 0);
+        }
+        else
+        {
+            bottles[pos].value = newValue;
+        }
+
+        currentBottlePos = Mathf.Clamp(pos, 0, bottles.Count - 1);
     }
 
     private void RotateClock()
     {
-        currentAngle += speed * Time.deltaTime; // accumulate
+        float ratio = SessionTimer.Instance.GetTimeRatio();
+        currentAngle = Mathf.Lerp(startAngle, endAngle, ratio);
+
         rotatingImage.style.rotate = new Rotate(new Angle(currentAngle, AngleUnit.Degree));
     }
 }

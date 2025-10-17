@@ -7,46 +7,76 @@ using UnityEngine.UIElements;
 public class PauseMenu : MonoBehaviour
 {
     private Button restartBtn, quitGameBtn;
+    private Slider sfxSlider, mouseSenSlider;
 
-    protected VisualElement root;
+    public VisualElement root;
     public UIDocument uiDocument;
-
+    
+    [SerializeField] private Canvas fadeCanvas;
 
     private void OnEnable()
     {
-        root = uiDocument.rootVisualElement;
-        SetProperties();
+        if (uiDocument == null)
+        {
+            Debug.LogError("PauseMenu: UIDocument is not assigned!");
+            return;
+        }
+ 
+        StartCoroutine(SetupUI());
     }
 
+  
     private void OnDisable()
     {
         UnSetProperties();
     }
 
+
     protected void SetProperties()
     {
-        restartBtn = root.Q("RestartBtn") as Button;
-        quitGameBtn = root.Q("QuitBtn") as Button;
+        var pauseRoot = root.Q("PauseMenu");
+        restartBtn = pauseRoot.Q<Button>("ResumeBtn");
+        quitGameBtn = pauseRoot.Q<Button>("QuitBtn");
 
-        restartBtn.RegisterCallback<ClickEvent>(RestartGameplay);
+        restartBtn.RegisterCallback<ClickEvent>(ResumeGameplay);
         quitGameBtn.RegisterCallback<ClickEvent>(QuitGameplay);
     }
 
+
     protected void UnSetProperties()
     {
-        restartBtn.UnregisterCallback<ClickEvent>(RestartGameplay);
-        quitGameBtn.UnregisterCallback<ClickEvent>(QuitGameplay);
+        if (restartBtn != null)
+            restartBtn.UnregisterCallback<ClickEvent>(ResumeGameplay);
+
+        if (quitGameBtn != null)
+            quitGameBtn.UnregisterCallback<ClickEvent>(QuitGameplay);
+
+        if (fadeCanvas != null)
+            fadeCanvas.sortingOrder = 1;
     }
 
-    private void RestartGameplay(ClickEvent evt)
+    private void ResumeGameplay(ClickEvent evt)
     {
-        Debug.Log("Restarts game here");
+        UIManager.Instance.DisplayPauseMenu(false);
+        fadeCanvas.sortingOrder = 1;
     }
 
     private void QuitGameplay(ClickEvent evt)
     {
-
         FadeTransitions.Instance.SwitchScenes("MainMenu", SceneScript.MainMenu);
-        //UIManager.Instance.DisplayPauseMenu(false);
+        UIManager.Instance.DisplayPauseMenu(false);
     }
+
+    private IEnumerator SetupUI() //Slight delay
+    {
+        yield return null;
+
+        root = uiDocument.rootVisualElement;
+
+        SetProperties();
+
+        if (fadeCanvas != null)
+            fadeCanvas.sortingOrder = 0;
+    }
+
 }

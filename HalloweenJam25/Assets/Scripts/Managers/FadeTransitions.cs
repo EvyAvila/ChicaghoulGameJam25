@@ -58,7 +58,8 @@ public class FadeTransitions : MonoBehaviour
         FadeIn(fadeDuration);
 
         yield return new WaitForSecondsRealtime(fadeDuration);
-
+        SceneManager.LoadScene(sceneName);
+        /*
         AsyncOperation load = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         load.allowSceneActivation = false;
 
@@ -69,10 +70,12 @@ public class FadeTransitions : MonoBehaviour
 
         load.allowSceneActivation = true;
 
-        yield return null;
+        yield return null;*/
+        yield return new WaitForSecondsRealtime(1.5f);
 
-        FadeOut(fadeDuration);
         UIManager.Instance.LoadNextMenu(scene);
+        FadeOut(fadeDuration);
+        
 
     }
 
