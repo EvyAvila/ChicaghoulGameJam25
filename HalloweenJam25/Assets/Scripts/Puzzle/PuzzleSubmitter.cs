@@ -25,6 +25,8 @@ public class PuzzleSubmitter : InteractableObject
     //Events
     public static event Action OnSubmitAttemptFail;
     public static event Action OnSubmitFullFailure;
+    public event Action OnFailAttempt;
+    public event Action OnFullFailure;
 
     /// <summary>
     /// The number of times this puzzle was failed
@@ -64,7 +66,10 @@ public class PuzzleSubmitter : InteractableObject
         if (failCount > 2)
         {
             OnSubmitFullFailure?.Invoke();
+            OnFullFailure?.Invoke();
         }
+
+        OnFailAttempt?.Invoke();
     }
     public void SetTrackedPuzzle(PuzzleBase instance)
     {

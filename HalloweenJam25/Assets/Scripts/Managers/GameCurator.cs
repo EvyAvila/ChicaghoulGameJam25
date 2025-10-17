@@ -54,6 +54,8 @@ public class GameCurator : MonoBehaviour
 
     private void OnEscaped(bool usingCollider)
     {
+        OnDecideEnding?.Invoke();
+
         if (usingCollider)
         {
             Debug.Log("Reach castle door");
@@ -65,7 +67,6 @@ public class GameCurator : MonoBehaviour
             OnWindowEscape?.Invoke();
         }
 
-        OnDecideEnding?.Invoke();
     }
 
     private void OnFinalSection()
