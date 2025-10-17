@@ -18,8 +18,8 @@ public enum FailureType { SUN, SOULS}
 public class GameEndingPicker : MonoBehaviour
 {
     public static GameEndingPicker Instance { get; private set; }
-    public static EndingType ending { get; private set; }
-    public static FailureType failType { get; private set; }
+    public EndingType ending { get; private set; }
+    public FailureType failType { get; private set; }
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class GameEndingPicker : MonoBehaviour
         GameCurator.OnLoseGameSun -= DeclareFailureTimer;
         GameCurator.OnDecideEnding -= DeclareStandardEndingType;
     }
-    public static void DeclareStandardEndingType()
+    public void DeclareStandardEndingType()
     {
         if (BloodTracker.Instance == null)
             return;
@@ -69,14 +69,14 @@ public class GameEndingPicker : MonoBehaviour
         }
     }
 
-    public static void DeclareFailureTimer()
+    public void DeclareFailureTimer()
     {
         Debug.Log("Failure Timer");
         ending = EndingType.FAILURE;
         failType = FailureType.SUN;
     }
 
-    public static void DeclareFailureSouls()
+    public void DeclareFailureSouls()
     {
         Debug.Log("Failure SOULS");
         ending = EndingType.FAILURE;
