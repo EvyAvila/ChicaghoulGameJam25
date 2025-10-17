@@ -4,6 +4,7 @@
     color: rgb(0, 0, 0);
     margin-top: 25px;
     margin-bottom: 25px;
+    -unity-font-definition: url('project://database/Assets/Fonts/NewRocker-Regular.ttf?fileID=12800000&guid=7017a6cf235f6404896dd99e16ccd9e7&type=3#NewRocker-Regular');
 }
 
 .button {
@@ -14,8 +15,12 @@
     font-size: 29px;
     margin-top: 25px;
     margin-bottom: 25px;
-    border-top-left-radius: 27px;
-    border-top-right-radius: 27px;
-    border-bottom-right-radius: 27px;
-    border-bottom-left-radius: 27px;
+    border-top-left-radius: -30px;
+    border-top-right-radius: -30px;
+    border-bottom-right-radius: -30px;
+    border-bottom-left-radius: -30px;
+    background-image: url('project://database/Assets/Art/UI/UIButton.png?fileID=2800000&guid=1a2d6508a3c40bf4388c9c1f0bc5024a&type=3#UIButton');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-slice-scale: 9px;
+    -unity-font-definition: url('project://database/Assets/Fonts/NewRocker-Regular.ttf?fileID=12800000&guid=7017a6cf235f6404896dd99e16ccd9e7&type=3#NewRocker-Regular');
 }

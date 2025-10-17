@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/MenuStyles.uss?fileID=7433441132597879392&amp;guid=63fe0120f51e23746b10b1de7e6a67c7&amp;type=3#MenuStyles" />
-    <ui:VisualElement style="flex-grow: 1; background-color: rgb(70, 66, 52);">
-        <ui:Label tabindex="-1" text="Game Name" display-tooltip-when-elided="true" name="Game_Title" class="titles" />
-        <ui:Button text="Start" display-tooltip-when-elided="true" name="StartBtn" class="button" />
-        <ui:Button text="Quit" display-tooltip-when-elided="true" name="QuitBtn" class="button" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(70, 66, 52, 0);">
+        <ui:Label tabindex="-1" text="The Lord&apos;s Trials" display-tooltip-when-elided="true" name="Game_Title" class="titles" />
+        <ui:Button text="Start" display-tooltip-when-elided="true" name="StartBtn" class="button" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+        <ui:Button text="Quit" display-tooltip-when-elided="true" name="QuitBtn" class="button" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
     </ui:VisualElement>
 </ui:UXML>
