@@ -36,11 +36,14 @@ public class Basket : PuzzleBase
 
         yield return null; 
 
-        Scanner.itemObj += OnUpdateItem;
+        scan.itemObj += OnUpdateItem;
     }
 
     private void OnUpdateItem(ItemIdentifier i)
     {
+        if (condition.AlreadyContainsItem(i))
+            return;
+
         if(condition.CanFitIntoBasket(i))
         {
             if (solveCondition(condition))
@@ -56,7 +59,7 @@ public class Basket : PuzzleBase
 
     private void OnDisable()
     {
-        Scanner.itemObj -= OnUpdateItem;
+        scan.itemObj -= OnUpdateItem;
     }
 
     public void Complete()

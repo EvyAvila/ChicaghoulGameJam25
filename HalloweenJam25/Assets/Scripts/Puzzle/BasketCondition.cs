@@ -44,7 +44,10 @@ public class BasketCondition : PuzzleCondition
         return true;
     }
 
-    
+    public bool AlreadyContainsItem(ItemIdentifier i)
+    {
+        return itemsEntered.Contains(i);
+    }
 
     public bool CanFitIntoBasket(ItemIdentifier i)
     {

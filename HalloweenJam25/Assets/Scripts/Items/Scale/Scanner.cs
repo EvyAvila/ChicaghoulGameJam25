@@ -6,7 +6,7 @@ using System;
 public class Scanner : MonoBehaviour
 {
 
-    public static event Action<ItemIdentifier> itemObj;
+    public event Action<ItemIdentifier> itemObj;
     
     private void OnTriggerEnter(Collider other)
     {
