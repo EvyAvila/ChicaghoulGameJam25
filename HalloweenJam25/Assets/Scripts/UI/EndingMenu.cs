@@ -71,12 +71,6 @@ public class EndingMenu : MonoBehaviour
         b.a = t;
         bg.value = b;
         endingBG.style.backgroundColor = bg;
-
-        if (t == 1)
-        {
-            if (fadeCanvas != null)
-                fadeCanvas.sortingOrder = 0;
-        }
     }
 
     private void DisplayEnding()
@@ -85,16 +79,28 @@ public class EndingMenu : MonoBehaviour
         var endingType = GameEndingPicker.Instance.ending;
         var failType = GameEndingPicker.Instance.failType;
 
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        UnityEngine.Cursor.visible = true;
+
+
         SetBGOpacity(0);
 
         if (endingType == EndingType.FAILURE && failType == FailureType.SOULS)
         {
             SetBGOpacity(1);
+
+            if (fadeCanvas != null)
+                fadeCanvas.sortingOrder = 0;
+
             output = "You've awoken the souls";
         }
         else if (endingType == EndingType.FAILURE && failType == FailureType.SUN)
         {
             SetBGOpacity(1);
+
+            if (fadeCanvas != null)
+                fadeCanvas.sortingOrder = 0;
+
             output = "Cooked by the sun";
         }
         else if(endingType == EndingType.BAD)

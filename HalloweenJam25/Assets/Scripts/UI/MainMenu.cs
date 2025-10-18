@@ -29,7 +29,7 @@ public class MainMenu : BaseMenu
 
     private void StartGame(ClickEvent evt)
     {
-        FadeTransitions.Instance.SwitchScenes("Gameplay", SceneScript.GameMenu);
+        FadeTransitions.Instance.SwitchScenes("BakeGameTest", SceneScript.GameMenu);
         Debug.Log("Starts game");
     }
 

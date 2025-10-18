@@ -20,7 +20,7 @@ public class BasketCondition : PuzzleCondition
     private void Start()
     {
         requiredAmount = requiredAmount == 0 ? 2 : requiredAmount;
-        getYPosition = transform.position.y;
+        getYPosition = transform.localPosition.y;
     }
 
     public override bool isCorrect()
@@ -64,7 +64,7 @@ public class BasketCondition : PuzzleCondition
 
     private void MoveBasket(float y)
     {
-        targetPos = new Vector3(transform.position.x, y, transform.position.z);
+        targetPos = new Vector3(transform.localPosition.x, y, transform.localPosition.z);
         InvokeRepeating(nameof(MoveStep), 0f, Time.deltaTime);
         Invoke(nameof(StopMove), 1f);
 
@@ -72,7 +72,7 @@ public class BasketCondition : PuzzleCondition
 
     private void MoveStep() 
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        transform.localPosition= Vector3.MoveTowards(transform.localPosition, targetPos, moveSpeed * Time.deltaTime);
     }
 
     private void StopMove() 

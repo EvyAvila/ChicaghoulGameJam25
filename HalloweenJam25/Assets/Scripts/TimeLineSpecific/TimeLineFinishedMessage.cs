@@ -18,6 +18,10 @@ public class TimeLineFinishedMessage : MonoBehaviour
         {
             StartCoroutine(EndOnBlack());
         }
+        else
+        {
+            StartCoroutine(DefaultEnd());
+        }
     }
 
     private IEnumerator EndOnBlack()
@@ -27,6 +31,12 @@ public class TimeLineFinishedMessage : MonoBehaviour
 
         UIManager.Instance.DisplayEndingMenu(true);
         FadeTransitions.Instance.FadeOut(0.9f);
+        yield return null;
+    }
+    private IEnumerator DefaultEnd()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        UIManager.Instance.DisplayEndingMenu(true);
         yield return null;
     }
 }
