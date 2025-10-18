@@ -1896,8 +1896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f865ff2c4a3b93d49a2e261f52aaf79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBtn: {fileID: 6369050759898228465}
-  rightBtn: {fileID: 0}
+  leftBtn: {fileID: 1277982945536346931}
+  rightBtn: {fileID: 6369050759898228465}
   pourBtn: {fileID: 6476043416766657402}
   gearClip: {fileID: 8300000, guid: 33c994c8c5c215c4f8943d0170524558, type: 3}
   pourClip: {fileID: 8300000, guid: 05090148b92736a4aa6bc777a1b63415, type: 3}
@@ -1910,7 +1910,7 @@ AudioSource:
   m_GameObject: {fileID: 1603425906320719015}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6093866432657537314, guid: 44409c0e831346846b2976bd50889169, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1957,7 +1957,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.888
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1987,7 +1987,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.1
+      value: 0.836
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2703,6 +2703,7 @@ Transform:
   - {fileID: 662282825836374880}
   - {fileID: 2446826598269438565}
   - {fileID: 4720089614892224082}
+  - {fileID: 7796579898382242172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2071523659199000821

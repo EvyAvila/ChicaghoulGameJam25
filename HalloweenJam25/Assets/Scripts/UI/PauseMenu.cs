@@ -59,6 +59,8 @@ public class PauseMenu : MonoBehaviour
     {
         UIManager.Instance.DisplayPauseMenu(false);
         fadeCanvas.sortingOrder = 1;
+
+        UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.Locked;
     }
 
     private void QuitGameplay(ClickEvent evt)

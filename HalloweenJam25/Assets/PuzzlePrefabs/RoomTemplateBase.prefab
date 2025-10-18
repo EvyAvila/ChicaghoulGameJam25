@@ -9897,7 +9897,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5704729543150066673}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -24210,6 +24210,18 @@ PrefabInstance:
     - target: {fileID: 5318311443523245307, guid: 38afdbf1338e3164cac4a6b13e0b92b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883097027807186827, guid: 38afdbf1338e3164cac4a6b13e0b92b5, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.38803846
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883097027807186827, guid: 38afdbf1338e3164cac4a6b13e0b92b5, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.69047743
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883097027807186827, guid: 38afdbf1338e3164cac4a6b13e0b92b5, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.754717
       objectReference: {fileID: 0}
     - target: {fileID: 8340453599962781338, guid: 38afdbf1338e3164cac4a6b13e0b92b5, type: 3}
       propertyPath: m_LocalPosition.x

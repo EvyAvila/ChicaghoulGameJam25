@@ -10,15 +10,17 @@ public class EndingAreaTimelineActivator : MonoBehaviour
 
     private void Start()
     {
-        GameCurator.OnCastleDoorReached += OnFlyingSectionEnded;
+        GameCurator.OnCastleDoorReached += OnActivateEnding;
+        GameCurator.OnWindowEscape += OnActivateEnding;
     }
 
     private void OnDisable()
     {
-        GameCurator.OnCastleDoorReached -= OnFlyingSectionEnded;
+        GameCurator.OnCastleDoorReached -= OnActivateEnding;
+        GameCurator.OnWindowEscape -= OnActivateEnding;
     }
 
-    private void OnFlyingSectionEnded()
+    private void OnActivateEnding()
     {
         switch (GameEndingPicker.Instance.ending)
         {

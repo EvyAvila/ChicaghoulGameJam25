@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029089179, g: 0.029897997, b: 0.029895388, a: 1}
+  m_IndirectSpecularColor: {r: 0.029089153, g: 0.029898021, b: 0.029895408, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -40135,7 +40135,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: caa73432046211443a211f7d3e18571e, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -79337,6 +79337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad3fc9f9854c6d489df5529f7d7d4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackOutOnFinish: 0
 --- !u!320 &1549234251
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -101053,6 +101054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1945033331}
+  fadeCanvas: {fileID: 0}
 --- !u!114 &1945033331
 MonoBehaviour:
   m_ObjectHideFlags: 0
