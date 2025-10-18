@@ -13,6 +13,8 @@ public class PourButtonObject : InteractableObject //, IButtonObjects
 
     public static event Action<float> onInteractionChanged;
 
+    public event Action OnButtonTriggerd;
+
     protected override void Start()
     {
         isInteractable = true;
@@ -24,6 +26,7 @@ public class PourButtonObject : InteractableObject //, IButtonObjects
         {
             cauld.GetPotion();
             onInteractionChanged?.Invoke(cauld.wait);
+            OnButtonTriggerd?.Invoke();
         }
     }
 }

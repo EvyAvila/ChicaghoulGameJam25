@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class RotatingButtonObjects : InteractableObject //, IButtonObjects
     [SerializeField] private float degrees;
 
     [SerializeField] private Cauldron cauldron;
+
+    public event Action OnButtonTriggerd;
 
     private float buttonTimer = 0.4f;
     private float currTimer;
@@ -60,5 +63,6 @@ public class RotatingButtonObjects : InteractableObject //, IButtonObjects
                 break;
         }
 
+        OnButtonTriggerd?.Invoke();
     }
 }
