@@ -35867,8 +35867,8 @@ MonoBehaviour:
   playerBody: {fileID: 297632271}
   bodyRotateSpeed: 20
   rotateBody: 1
-  aimSensitvityX: 40
-  aimSensitvityY: 40
+  aimSensitvityX: 20
+  aimSensitvityY: 20
   topLookClampAngle: 70
   bottomLookClampAngle: -80
 --- !u!114 &659066693
