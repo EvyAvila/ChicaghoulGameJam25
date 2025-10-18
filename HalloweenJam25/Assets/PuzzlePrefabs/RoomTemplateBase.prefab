@@ -10744,8 +10744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   srcTrigger: {fileID: 1016964461360249574}
   totalSeconds: 60
-  maxBloodAmount: 9
-  minBloodAmount: 1
+  maxBloodAmount: 2
+  minBloodAmount: 0.8
 --- !u!114 &1308954995598648529
 MonoBehaviour:
   m_ObjectHideFlags: 0

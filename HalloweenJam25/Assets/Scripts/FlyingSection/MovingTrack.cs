@@ -7,8 +7,11 @@ public class MovingTrack : MonoBehaviour
     [SerializeField] private float trackSpeed;
     [SerializeField]private bool moveTrack;
 
+    private AudioSource source;
     private void Start()
     {
+        source = GetComponent<AudioSource>();
+
         CameraSwitcher.OnFlyingTransitionFinished += CameraSwitcher_OnFlyingTransitionFinished;
     }
     private void OnDisable()
@@ -32,5 +35,6 @@ public class MovingTrack : MonoBehaviour
     private void StartTrack()
     {
         moveTrack = true;
+        source.Play();
     }
 }

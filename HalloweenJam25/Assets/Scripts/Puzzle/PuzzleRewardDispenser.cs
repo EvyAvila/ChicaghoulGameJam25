@@ -18,7 +18,7 @@ public class PuzzleRewardDispenser : MonoBehaviour
     [Header("Blood Reward")]
     [Range(1, 25)]
     [SerializeField] private float maxBloodAmount;
-    [Range(1, 25)]
+    [Range(0, 25)]
     [SerializeField] private float minBloodAmount;
     private float currentBloodAmount;
 
