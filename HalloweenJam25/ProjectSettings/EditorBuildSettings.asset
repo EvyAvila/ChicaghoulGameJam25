@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 0fb58de99108b2d4984c2ca10a685b02
   - enabled: 1
+    path: Assets/Scenes/BakeGameTest.unity
+    guid: 2eaa234d2d819544cae15a49943ee29a
+  - enabled: 0
     path: Assets/Scenes/Gameplay.unity
     guid: 2074e1f3e6f6f5e49bdfc10d271f52ab
   - enabled: 1
