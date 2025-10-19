@@ -14,9 +14,12 @@ public class EndingMenu : MonoBehaviour
     [SerializeField] private Canvas fadeCanvas;
     private bool isActive;
 
+    private bool exitMode;
+
     private void Start()
     {
         isActive = false;
+        exitMode = false;
         UIManager.Instance.DisplayPauseMenu(isActive);
     }
 
@@ -44,7 +47,6 @@ public class EndingMenu : MonoBehaviour
 
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         UnityEngine.Cursor.visible = true;
-
     }
 
     protected void UnSetProperties()
@@ -59,6 +61,7 @@ public class EndingMenu : MonoBehaviour
     private void ExitGame(ClickEvent evt)
     {
         isActive = false;
+        exitMode = false;
         //UIManager.Instance.LoadNextMenu(SceneScript.MainMenu);
         FadeTransitions.Instance.SwitchScenes("MainMenu", SceneScript.MainMenu);
         UIManager.Instance.DisplayEndingMenu(isActive);
@@ -73,8 +76,22 @@ public class EndingMenu : MonoBehaviour
         endingBG.style.backgroundColor = bg;
     }
 
+    private void Update()
+    {
+        if (exitMode)
+        {
+            if (fadeCanvas != null)
+            {
+                if (fadeCanvas.sortingOrder != 0)
+                    fadeCanvas.sortingOrder = 0;
+            }
+        }
+    }
+
     private void DisplayEnding()
     {
+        exitMode = true;
+
         string output = "";
         var endingType = GameEndingPicker.Instance.ending;
         var failType = GameEndingPicker.Instance.failType;
@@ -82,6 +99,8 @@ public class EndingMenu : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         UnityEngine.Cursor.visible = true;
 
+        if (fadeCanvas != null)
+            fadeCanvas.sortingOrder = 0;
 
         SetBGOpacity(0);
 
