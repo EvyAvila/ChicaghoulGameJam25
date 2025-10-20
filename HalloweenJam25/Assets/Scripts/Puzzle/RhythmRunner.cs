@@ -28,6 +28,8 @@ public class RhythmRunner : InteractableObject
     [SerializeField] private AudioClip CountInClip;
     [SerializeField] private AudioClip Song;
 
+    private MappedNotes mappedNotes;
+
     /// <summary>
     /// Note divisions to track: Quarter, Eighth, etc.
     /// </summary>
@@ -78,11 +80,19 @@ public class RhythmRunner : InteractableObject
         source = GetComponent<AudioSource>();
         source.clip = CountInClip;
 
+        mappedNotes = GetComponent<MappedNotes>();
 
         beatInterval = intervals.GetIntervalLength(BPM) * 2;
         
         //Subscriptions
         intervals.IntervalEvent += IncrementBeat;
+        mappedNotes.OnSolved += Deactivate;
+
+    }
+
+    private void Deactivate()
+    {
+        canBeUsed = false;
     }
 
     public void StartIntro()
@@ -132,7 +142,6 @@ public class RhythmRunner : InteractableObject
 
         InputTogglerEvents.EnablePlayerInputs();
         activated = false;
-        canBeUsed = false;
     }
     private void CountOnDivisions()
     {
@@ -187,6 +196,7 @@ public class RhythmRunner : InteractableObject
     private void OnDisable()
     {
         intervals.IntervalEvent -= IncrementBeat;
+        mappedNotes.OnSolved -= Deactivate;
     }
 
     //Overrides

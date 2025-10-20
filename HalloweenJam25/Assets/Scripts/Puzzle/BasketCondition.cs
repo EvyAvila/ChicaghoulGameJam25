@@ -41,6 +41,9 @@ public class BasketCondition : PuzzleCondition
             }
         }
 
+        foreach(ItemIdentifier item in itemsEntered) 
+            item.gameObject.SetActive(false);
+
         return true;
     }
 

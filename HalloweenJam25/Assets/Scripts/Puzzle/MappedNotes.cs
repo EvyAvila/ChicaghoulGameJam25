@@ -50,6 +50,8 @@ public class MappedNotes : PuzzleBase
     private Dictionary<string, KeyboardNote> inputDict;
     private Dictionary<string, RhythmNote[]> arrayDict;
 
+    public event Action OnSolved;
+
     [SerializeField] private bool acceptInput;
 
     private void Start()
@@ -377,6 +379,7 @@ public class MappedNotes : PuzzleBase
     public override void SolvePuzzle()
     {
         Debug.Log("PuzzleSolved");
+        OnSolved?.Invoke();
         base.SolvePuzzle();
     }
 }
