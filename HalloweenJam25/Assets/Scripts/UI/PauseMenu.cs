@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
             Debug.LogError("PauseMenu: UIDocument is not assigned!");
             return;
         }
- 
+
         StartCoroutine(SetupUI());
     }
 
@@ -31,17 +31,41 @@ public class PauseMenu : MonoBehaviour
         UnSetProperties();
     }
 
-
     protected void SetProperties()
     {
         var pauseRoot = root.Q("PauseMenu");
         restartBtn = pauseRoot.Q<Button>("ResumeBtn");
         quitGameBtn = pauseRoot.Q<Button>("QuitBtn");
+        //sfxSlider = pauseRoot.Q<Slider>("SoundFXSlider");
+        mouseSenSlider = pauseRoot.Q<Slider>("MouseSensitivitySlider");
 
         restartBtn.RegisterCallback<ClickEvent>(ResumeGameplay);
         quitGameBtn.RegisterCallback<ClickEvent>(QuitGameplay);
+
+        //sfxSlider.RegisterValueChangedCallback(SetSFXVol);
+        mouseSenSlider.RegisterValueChangedCallback(SetMouseSense);
+
+        if (mouseSenSlider != null && MouseSensitivity.Instance != null)
+        {
+            mouseSenSlider.SetValueWithoutNotify(MouseSensitivity.Instance.sensitivity);
+        }
     }
 
+    private void SetMouseSense(ChangeEvent<float> e)
+    {
+        if (MouseSensitivity.Instance != null)
+        {
+            MouseSensitivity.Instance.SetMouseSense(e.newValue);
+        }
+    }
+
+    private void SetSFXVol(ChangeEvent<float> e)
+    {
+        if (AudioSettings.Instance != null)
+        {
+            AudioSettings.Instance.SetSFXVol(e.newValue);
+        }
+    }
 
     protected void UnSetProperties()
     {
@@ -53,6 +77,12 @@ public class PauseMenu : MonoBehaviour
 
         if (fadeCanvas != null)
             fadeCanvas.sortingOrder = 1;
+
+        if (mouseSenSlider != null)
+            mouseSenSlider.UnregisterValueChangedCallback(SetMouseSense);
+
+        //if (sfxSlider != null)
+        //    sfxSlider.UnregisterValueChangedCallback(SetSFXVol);
     }
 
     private void ResumeGameplay(ClickEvent evt)

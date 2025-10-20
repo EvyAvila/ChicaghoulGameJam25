@@ -126,7 +126,7 @@ public class RhythmRunner : InteractableObject
         yield return new WaitForSeconds(delay);
         OnSongStarted?.Invoke();
         countBeats = true;
-        dspTime = AudioSettings.dspTime;
+        dspTime = UnityEngine.AudioSettings.dspTime;
         yield return null;
     }
     public void StopCounting()
@@ -145,7 +145,7 @@ public class RhythmRunner : InteractableObject
     }
     private void CountOnDivisions()
     {
-        songPos = (AudioSettings.dspTime - dspTime);
+        songPos = (UnityEngine.AudioSettings.dspTime - dspTime);
         dspBeat = (songPos / beatInterval)+1;
 
         float elapsed = (source.timeSamples /

@@ -37,9 +37,12 @@ public class CameraAimer : MonoBehaviour
 
     public void SetMouseAim(Vector2 aimDelta)
     {
-        anchorRotationVector.x -= aimDelta.y * aimSensitvityX * Time.deltaTime;
-        anchorRotationVector.y += aimDelta.x * aimSensitvityY * Time.deltaTime;
-    
+        //anchorRotationVector.x -= aimDelta.y * aimSensitvityX * Time.deltaTime;
+        //anchorRotationVector.y += aimDelta.x * aimSensitvityY * Time.deltaTime;
+
+        anchorRotationVector.x -= aimDelta.y * MouseSensitivity.Instance.sensitivity * Time.deltaTime;
+        anchorRotationVector.y += aimDelta.x * MouseSensitivity.Instance.sensitivity * Time.deltaTime;
+
         anchorRotationVector.x = Mathf.Clamp(anchorRotationVector.x,
             bottomLookClampAngle,
             topLookClampAngle);
